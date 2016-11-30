@@ -26,5 +26,4 @@ class NavigationLinks extends React.Component {
         );
     }
 }
-
 export default App;
