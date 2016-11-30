@@ -3,3 +3,38 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.searchInput {
+  display: block;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1em;
+}
+
+.card {
+  flex-basis: 14%;
+  flex-grow: 0;
+  margin-bottom: 1.5em;
+}
+
+.card .content {
+  margin: .5em .5em;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card .content > :not(img) {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.random-recipes {
+  text-align: center;
+}
