@@ -14,7 +14,7 @@ class DataController {
             }
         }
 
-        let request = new Request(baseUrl + endpoint, {
+        let request = new Request(baseUrl + endpoint + paramString, {
             credentials: 'omit',
             headers: new Headers({
                 'X-Mashape-Key': key,
