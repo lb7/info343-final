@@ -7,11 +7,12 @@ class DataController {
         const key = 'i7gEqPMlZGmshfpAA5Rtot8sVzWvp1BSR8ijsnBtIWIgxXFuDE';
 
         let paramString = '?';
+        console.log(parameters);
 
         for (let key in parameters) {
-            if (parameters.hasOwnProperty(key)) {
-                paramString += key + '=' + parameters[key] + '&'
-            }
+            //if (parameters.hasOwnProperty(key)) {
+                paramString += key + '=' + parameters[key] + '&';
+            //}
         }
 
         let request = new Request(baseUrl + endpoint + paramString, {
