@@ -1,9 +1,18 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import {Link, Router} from 'react-router';
 
 class App extends React.Component {
     render() {
         return (
             <div>
+             <main className="container">
+          <div className="row">
+            <div className="col-xs-3">
+              <NavigationLinks />
+        </div>
+            </div>
+            </main>
                 {this.props.children}
             </div>
         )
@@ -17,9 +26,7 @@ class NavigationLinks extends React.Component {
             <nav>
                 <h2>Navigation</h2>
                 <ul className="list-unstyled">
-                    <li><Link to="/" activeClassName="activeLink">Homepage</Link></li>
-                    <li><Link to="recipe/:id" activeClassName="activeLink">Recipes</Link></li>
-                    <li><Link to="search/results" activeClassName="activeLink">Search Results</Link></li>
+                    <li><Link to="/" >Homepage</Link></li>
                 </ul>
             </nav>
 
