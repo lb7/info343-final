@@ -28,7 +28,7 @@ class Results extends React.Component {
 
     componentWillMount() {
         DataController.makeRequest('/recipes/searchComplex',
-            this.props.location.query,
+            this.props.location.search,
             this.searchCallback);
     }
 

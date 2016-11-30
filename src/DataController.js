@@ -6,14 +6,18 @@ class DataController {
         const baseUrl = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com';
         const key = 'i7gEqPMlZGmshfpAA5Rtot8sVzWvp1BSR8ijsnBtIWIgxXFuDE';
 
-        let paramString = '?';
-        console.log(parameters);
+        let paramString = '';
 
-        for (let key in parameters) {
-            //if (parameters.hasOwnProperty(key)) {
+        if (typeof parameters === 'object') {
+            paramString = '?';
+
+            for (let key in parameters) {
                 paramString += key + '=' + parameters[key] + '&';
-            //}
+            }
+        } else {
+            paramString = parameters;
         }
+
 
         let request = new Request(baseUrl + endpoint + paramString, {
             credentials: 'omit',

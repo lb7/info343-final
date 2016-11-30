@@ -15,10 +15,17 @@ class Recipe extends React.Component {
             ingredients: []
         };
         this.fetchData = this.fetchData.bind(this);
-        this.fetchData(this.state.recipeId);
+        
     }
-
     
+     componentWillMount() {
+         var id = this.props.params.id;
+         this.setState({recipeId: id}, () => {
+             console.log(`recipeId: ${this.state.recipeId}`);
+              this.fetchData(this.state.recipeId);
+         });
+        
+     }
 
     fetchData(id) {
         DataController.makeRequest('/recipes/' + id + '/information', {}, data => {
