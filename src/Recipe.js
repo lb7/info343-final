@@ -7,7 +7,7 @@ class Recipe extends React.Component {
         super(props);
         this.state = {
             originalSource: '',
-            recipeId: '156992',
+            recipeId: '',
             recipeTitle: '',
             prepTime: '',
             image: '',
@@ -15,16 +15,17 @@ class Recipe extends React.Component {
             ingredients: []
         };
         this.fetchData = this.fetchData.bind(this);
-        this.fetchData(this.state.recipeId);
         
     }
     
-    /* Will add this later when fixed */
-    // componentWillMount() {
-    //     var id = this.props.params.id;
-    //     this.setState({recipeId: id});
-    //     this.fetchData(this.state.recipeId);
-    // }
+     componentWillMount() {
+         var id = this.props.params.id;
+         this.setState({recipeId: id}, () => {
+             console.log(`recipeId: ${this.state.recipeId}`);
+              this.fetchData(this.state.recipeId);
+         });
+        
+     }
 
     fetchData(id) {
         DataController.makeRequest('/recipes/' + id + '/information', {}, data => {
