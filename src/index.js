@@ -6,6 +6,10 @@ import Search from './Search';
 import Results from './Results';
 import Recipe from './Recipe';
 import HomePage from './HomePage';
+
+import 'react-mdl/extra/material.css';
+import 'react-mdl/extra/material.js';
+
 import './index.css';
 
 ReactDOM.render(
