@@ -7,7 +7,7 @@ class Recipe extends React.Component {
         super(props);
         this.state = {
             originalSource: '',
-            recipeId: '',
+            recipeId: '156992',
             recipeTitle: '',
             prepTime: '',
             image: '',
@@ -16,9 +16,15 @@ class Recipe extends React.Component {
         };
         this.fetchData = this.fetchData.bind(this);
         this.fetchData(this.state.recipeId);
+        
     }
-
     
+    /* Will add this later when fixed */
+    // componentWillMount() {
+    //     var id = this.props.params.id;
+    //     this.setState({recipeId: id});
+    //     this.fetchData(this.state.recipeId);
+    // }
 
     fetchData(id) {
         DataController.makeRequest('/recipes/' + id + '/information', {}, data => {
