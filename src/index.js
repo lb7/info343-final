@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router'
-import App, {HomePage, Recipe, Search, Results} from './App';
+import App from './App';
+import Search from './Search';
+import Results from './Results';
+import Recipe from './Recipe';
+import HomePage from './HomePage';
 import './index.css';
 
 ReactDOM.render(
