@@ -30,18 +30,18 @@ class RandomRecipeList extends React.Component {
 
     componentWillMount() {
         this.fetchData();
-        console.log(this.state);
+        //console.log(this.state);
     }
 
     fetchData() {
         DataController.makeRequest('/recipes/random', '?limitLicense=false&number=7', data => {
-            console.log(data);
-            this.setState({results: data });
+            //console.log(data);
+            this.setState({results: data.recipes });
         });
     }
 
     render() {
-        var randomRecipes = this.state.results.recipes;
+        var randomRecipes = this.state.results;
         var recipeCards = randomRecipes.map((recipe) => {
             return <RecipeCard recipe={recipe} key={recipe.id} />
         })
