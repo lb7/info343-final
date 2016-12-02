@@ -12,7 +12,15 @@ class Search extends React.Component {
             includeIngredients: '',
             excludeIngredients: '',
             intolerances: '',
-            diet: ''
+            diet: '',
+            minCalories: '',
+            maxCalories: '',
+            minCarbs: '',
+            maxCarbs: '',
+            minFat: '',
+            maxFat: '',
+            minProtein: '',
+            maxProtein: ''
         }
     }
 
@@ -63,11 +71,84 @@ class Search extends React.Component {
                         className="searchInput"
                         floatingLabel
                     />
-
-                    <Link to={{pathname: '/search/results', query: this.state}}>
-                        <Button raised colored>Search</Button>
-                    </Link>
                 </div>
+                <div>
+                    <Textfield
+                        onChange={e => {this.setState({minCalories:e.target.value})}}
+                        value={this.state.minCalories}
+                        pattern="-?[0-9]*(\.[0-9]+)?"
+                        error="Input is not a number!"
+                        label="Recipe name"
+                        className="searchInput"
+                        floatingLabel
+                    />
+                    <Textfield
+                        onChange={e => {this.setState({maxCalories:e.target.value})}}
+                        value={this.state.maxCalories}
+                        pattern="-?[0-9]*(\.[0-9]+)?"
+                        error="Input is not a number!"
+                        label="Recipe name"
+                        className="searchInput"
+                        floatingLabel
+                    />
+                    <Textfield
+                        onChange={e => {this.setState({minCarbs:e.target.value})}}
+                        value={this.state.minCarbs}
+                        pattern="-?[0-9]*(\.[0-9]+)?"
+                        error="Input is not a number!"
+                        label="Recipe name"
+                        className="searchInput"
+                        floatingLabel
+                    />
+                    <Textfield
+                        onChange={e => {this.setState({maxCarbs:e.target.value})}}
+                        value={this.state.maxCarbs}
+                        pattern="-?[0-9]*(\.[0-9]+)?"
+                        error="Input is not a number!"
+                        label="Recipe name"
+                        className="searchInput"
+                        floatingLabel
+                    />
+                    <Textfield
+                        onChange={e => {this.setState({minFat:e.target.value})}}
+                        value={this.state.minFat}
+                        pattern="-?[0-9]*(\.[0-9]+)?"
+                        error="Input is not a number!"
+                        label="Recipe name"
+                        className="searchInput"
+                        floatingLabel
+                    />
+                    <Textfield
+                        onChange={e => {this.setState({maxFat:e.target.value})}}
+                        value={this.state.maxFat}
+                        pattern="-?[0-9]*(\.[0-9]+)?"
+                        error="Input is not a number!"
+                        label="Recipe name"
+                        className="searchInput"
+                        floatingLabel
+                    />
+                    <Textfield
+                        onChange={e => {this.setState({minProtein:e.target.value})}}
+                        value={this.state.minProtein}
+                        pattern="-?[0-9]*(\.[0-9]+)?"
+                        error="Input is not a number!"
+                        label="Recipe name"
+                        className="searchInput"
+                        floatingLabel
+                    />
+                    <Textfield
+                        onChange={e => {this.setState({maxProtein:e.target.value})}}
+                        value={this.state.maxProtein}
+                        pattern="-?[0-9]*(\.[0-9]+)?"
+                        error="Input is not a number!"
+                        label="Recipe name"
+                        className="searchInput"
+                        floatingLabel
+                    />
+                </div>
+                <Link to={{pathname: '/search/results', query: this.state}}>
+                    <Button raised colored>Search</Button>
+                </Link>
             </div>
         )
     }
