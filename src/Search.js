@@ -72,9 +72,10 @@ class Search extends React.Component {
                         floatingLabel
                     />
                 </div>
+
                 <div>
                     <Textfield
-                        onChange={e => {this.setState({minCalories:e.target.value})}}
+                        onChange={e => this.setState({minCalories:e.target.value})}
                         value={this.state.minCalories}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
@@ -83,7 +84,7 @@ class Search extends React.Component {
                         floatingLabel
                     />
                     <Textfield
-                        onChange={e => {this.setState({maxCalories:e.target.value})}}
+                        onChange={e => this.setState({maxCalories:e.target.value})}
                         value={this.state.maxCalories}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
@@ -92,7 +93,7 @@ class Search extends React.Component {
                         floatingLabel
                     />
                     <Textfield
-                        onChange={e => {this.setState({minCarbs:e.target.value})}}
+                        onChange={e => this.setState({minCarbs:e.target.value})}
                         value={this.state.minCarbs}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
@@ -101,7 +102,7 @@ class Search extends React.Component {
                         floatingLabel
                     />
                     <Textfield
-                        onChange={e => {this.setState({maxCarbs:e.target.value})}}
+                        onChange={e => this.setState({maxCarbs:e.target.value})}
                         value={this.state.maxCarbs}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
@@ -110,7 +111,7 @@ class Search extends React.Component {
                         floatingLabel
                     />
                     <Textfield
-                        onChange={e => {this.setState({minFat:e.target.value})}}
+                        onChange={e => this.setState({minFat:e.target.value})}
                         value={this.state.minFat}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
@@ -119,7 +120,7 @@ class Search extends React.Component {
                         floatingLabel
                     />
                     <Textfield
-                        onChange={e => {this.setState({maxFat:e.target.value})}}
+                        onChange={e => this.setState({maxFat:e.target.value})}
                         value={this.state.maxFat}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
@@ -128,7 +129,7 @@ class Search extends React.Component {
                         floatingLabel
                     />
                     <Textfield
-                        onChange={e => {this.setState({minProtein:e.target.value})}}
+                        onChange={e => this.setState({minProtein:e.target.value})}
                         value={this.state.minProtein}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
@@ -137,7 +138,7 @@ class Search extends React.Component {
                         floatingLabel
                     />
                     <Textfield
-                        onChange={e => {this.setState({maxProtein:e.target.value})}}
+                        onChange={e => this.setState({maxProtein:e.target.value})}
                         value={this.state.maxProtein}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
