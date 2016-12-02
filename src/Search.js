@@ -78,7 +78,7 @@ class Search extends React.Component {
                         value={this.state.minCalories}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
-                        label="Recipe name"
+                        label="Minimum calories"
                         className="searchInput"
                         floatingLabel
                     />
@@ -87,7 +87,7 @@ class Search extends React.Component {
                         value={this.state.maxCalories}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
-                        label="Recipe name"
+                        label="Maximum calories"
                         className="searchInput"
                         floatingLabel
                     />
@@ -96,7 +96,7 @@ class Search extends React.Component {
                         value={this.state.minCarbs}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
-                        label="Recipe name"
+                        label="Minimum carbs"
                         className="searchInput"
                         floatingLabel
                     />
@@ -105,7 +105,7 @@ class Search extends React.Component {
                         value={this.state.maxCarbs}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
-                        label="Recipe name"
+                        label="Maximum carbs"
                         className="searchInput"
                         floatingLabel
                     />
@@ -114,7 +114,7 @@ class Search extends React.Component {
                         value={this.state.minFat}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
-                        label="Recipe name"
+                        label="Minimum fat"
                         className="searchInput"
                         floatingLabel
                     />
@@ -123,7 +123,7 @@ class Search extends React.Component {
                         value={this.state.maxFat}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
-                        label="Recipe name"
+                        label="Maximum fat"
                         className="searchInput"
                         floatingLabel
                     />
@@ -132,7 +132,7 @@ class Search extends React.Component {
                         value={this.state.minProtein}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
-                        label="Recipe name"
+                        label="Minimum protein"
                         className="searchInput"
                         floatingLabel
                     />
@@ -141,7 +141,7 @@ class Search extends React.Component {
                         value={this.state.maxProtein}
                         pattern="-?[0-9]*(\.[0-9]+)?"
                         error="Input is not a number!"
-                        label="Recipe name"
+                        label="Maximum protein"
                         className="searchInput"
                         floatingLabel
                     />
