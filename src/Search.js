@@ -22,6 +22,19 @@ class Search extends React.Component {
             minProtein: '',
             maxProtein: ''
         }
+
+        this.trimParams = this.trimParams.bind(this);
+    }
+
+    trimParams() {
+        let params = {};
+        for (let key in this.state) {
+            if (this.state[key]) {
+                params[key] = this.state[key];
+            }
+        }
+
+        return params;
     }
 
     render() {
@@ -147,7 +160,7 @@ class Search extends React.Component {
                         floatingLabel
                     />
                 </div>
-                <Link to={{pathname: '/search/results', query: this.state}}>
+                <Link to={{pathname: '/search/results', query: this.trimParams()}}>
                     <Button raised colored>Search</Button>
                 </Link>
             </div>
