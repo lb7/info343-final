@@ -20,12 +20,22 @@ class Recipe extends React.Component {
     }
 
     componentWillMount() {
+        this.setData();
+    }
+
+    componentWillReceiveProps() {
+        this.setData();
+    }
+
+    setData() {
         var id = this.props.params.id;
         this.setState({ recipeId: id }, () => {
             console.log(`recipeId: ${this.state.recipeId}`);
             this.fetchData(this.state.recipeId);
         });
 
+        //Scrolls the page to the top.
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
 
     fetchData(id) {
