@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, ListItem, ListItemAction, ListItemContent, Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
-import { Link } from 'react-router';
+import { hashHistory } from 'react-router';
 import DataController from './DataController';
 
 class Recipe extends React.Component {
@@ -42,6 +42,20 @@ class Recipe extends React.Component {
         });
     }
 
+    fetchSimilarData(id) {
+        DataController.makeRequest('/recipes/' + id + '/information', {}, data => {
+            this.setState({
+                originalSource: data.sourceUrl,
+                recipeId: data.id,
+                recipeTitle: data.title,
+                prepTime: data.readyInMinutes,
+                image: data.image,
+                servings: data.servings,
+                ingredients: data.extendedIngredients
+            });
+        });
+    }
+
     render() {
         return (
             <div>
@@ -53,7 +67,7 @@ class Recipe extends React.Component {
                 <img className="recipeImage" src={this.state.image} alt="recipe image" />
                 <IngredientList ingredients={this.state.ingredients} />
                 <InstructionsList id={this.state.recipeId} />
-                <SimilarRecipes id={this.state.recipeId} />
+                <SimilarRecipes id={this.state.recipeId} click={this.fetchSimilarData} />
                 <footer role="contentinfo">
                 </footer>
             </div>
@@ -160,9 +174,10 @@ class SimilarRecipes extends React.Component {
     }
 
     render() {
+        var clickCallback = this.props.click;
         var shortArray = this.state.similarRecipes.slice(0, 4);
         var recipeCards = shortArray.map(function (recipeObj) {
-            return <RecipeCard recipe={recipeObj} key={recipeObj.id} />
+            return <RecipeCard recipe={recipeObj} key={recipeObj.id} callback={clickCallback} />
         });
 
         return (
@@ -174,11 +189,25 @@ class SimilarRecipes extends React.Component {
 }
 
 class RecipeCard extends React.Component {
-
-    // handleClick() {
-    //     //hashHistory.push('/recipe/' + this.props.recipe.id);
-    //     <Link to='/recipe/'{this.props.recipe.id} />
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         recipe: {}
+    //     };
+    //     this.fetchData = this.fetchData.bind(this);
+    //     this.fetchData(this.props.recipe.id);
     // }
+
+    // fetchData(id) {
+    //     DataController.makeRequest('/recipes/' + id + '/information', {}, data => {
+    //         this.setState({recipe: data});
+    //     });
+    // }
+
+    handleClick() {
+       // hashHistory.push('/recipe/' + this.state.recipe.id);
+       this.props.callback(this.props.recipe.id);
+    }
 
     render() {
 
@@ -186,10 +215,11 @@ class RecipeCard extends React.Component {
             <Card shadow={0} style={{ width: '320px', height: '320px', margin: 'auto' }}>
                 <CardTitle expand style={{ color: '#fff', background: 'url('+ this.props.recipe.image +') bottom right 15% no-repeat #46B6AC' }}></CardTitle>
                 <CardText>
-                    {this.props.recipe.title}
+                    {this.state.props.title}
                 </CardText>
                 <CardActions border>
-                    <Link to={'/recipe/'+ this.props.recipe.id}>Go to Recipe</Link>
+                    {/*<Link to={'/recipe/'+ this.props.recipe.id}>Go to Recipe</Link>*/}
+                    <Button onClick={(e) => this.handleClick(e)} colored>Go to Recipe</Button>
                 </CardActions>
             </Card>
         );
