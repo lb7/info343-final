@@ -38,3 +38,7 @@ body {
 .random-recipes {
   text-align: center;
 }
+
+a{
+  text-decoration: none;
+}
