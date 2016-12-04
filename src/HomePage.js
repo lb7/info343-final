@@ -1,6 +1,7 @@
 import React from 'react';
 import { hashHistory } from 'react-router'
 import DataController from './DataController';
+import CardTemplate from './Card'
 
 class HomePage extends React.Component {
 
@@ -69,12 +70,8 @@ class RecipeCard extends React.Component {
         var recipe = this.props.recipe;
 
         return (
-            <div className="card">
-                <div className="content">
-                    <img src={recipe.image} alt={recipe.title} />
-                    <p>{recipe.title}</p>
-                    <button className="button" onClick={(e) => this.handleClick(e)}>Learn More</button>
-                </div>
+            <div className = 'cardTemplate'>
+                <CardTemplate image = {recipe.image} title = {recipe.title} id = {recipe.id}/>
             </div>
         );
     }

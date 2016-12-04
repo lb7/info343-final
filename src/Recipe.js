@@ -2,6 +2,7 @@ import React from 'react';
 import { List, ListItem, ListItemAction, ListItemContent, Card, CardTitle, CardText, CardActions } from 'react-mdl';
 import { Link } from 'react-router';
 import DataController from './DataController';
+import CardTemplate from './Card';
 
 class Recipe extends React.Component {
     constructor(props) {
@@ -184,15 +185,9 @@ class RecipeCard extends React.Component {
     render() {
 
         return (
-            <Card shadow={0} style={{ width: '320px', height: '320px', margin: 'auto' }}>
-                <CardTitle expand style={{ color: '#fff', background: 'url(https://spoonacular.com/recipeImages/'+ this.props.recipe.image + ') center / cover'}} />
-                <CardText>
-                    {this.props.recipe.title}
-                </CardText>
-                <CardActions border>
-                    <Link to={'/recipe/' + this.props.recipe.id}>Go to Recipe</Link>
-                </CardActions>
-            </Card>
+            <div className = 'cardTemplate'>
+                <CardTemplate image = {'https://spoonacular.com/recipeImages/'+ this.props.recipe.image} title = {this.props.recipe.title} id = {this.props.recipe.id}/>
+            </div>
         );
     }
 }

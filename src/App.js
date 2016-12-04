@@ -1,8 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Link, Router} from 'react-router';
+import {Button, Textfield} from 'react-mdl';
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            query: ''
+        }
+        this.stateUpdate = this.stateUpdate.bind(this);
+    }
+
+  //add searchCallBack from results
+
+    stateUpdate(input) {
+        this.setState({query: input});
+    }
+
     render() {
         return (
             <div>
@@ -10,6 +26,13 @@ class App extends React.Component {
           <div className="row">
             <div className="col-xs-3">
               <NavigationLinks />
+              <SearchBar query = {this.state.query} callback={this.stateUpdate}/>
+              <Link to={{pathname: '/search/results', query: this.state}}>
+                        <Button raised colored>Search</Button>
+                    </Link>
+                <Link to='/search'>
+                        <Button raised colored>Advanced Search</Button>
+                    </Link>
         </div>
             </div>
             </main>
@@ -19,7 +42,6 @@ class App extends React.Component {
     }
 }
 
-//navigation mock-up will fix later
 class NavigationLinks extends React.Component {
     render() {
         return (
@@ -33,4 +55,28 @@ class NavigationLinks extends React.Component {
         );
     }
 }
+
+class SearchBar extends React.Component{
+
+    handleChange(e) {
+        console.log(e.target.value);
+        this.props.callback(e.target.value);
+    }
+
+    render(){
+        return (
+            <div>
+              <Textfield
+                        onChange={(e) => {this.handleChange(e)}}
+                        value={this.props.query}
+                        label="Search"
+                        className="searchInput"
+                        floatingLabel
+                    />
+                    
+            </div>
+        );
+    }
+}
+
 export default App;
