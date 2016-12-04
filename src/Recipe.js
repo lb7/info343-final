@@ -9,6 +9,7 @@ class Recipe extends React.Component {
         super(props);
         this.state = {
             originalSource: '',
+            creditText: '',
             recipeId: '',
             recipeTitle: '',
             prepTime: '',
@@ -27,7 +28,6 @@ class Recipe extends React.Component {
     }
 
     componentWillReceiveProps() {
-        //this.fetchSimilarData();
         this.setData();
     }
 
@@ -43,10 +43,12 @@ class Recipe extends React.Component {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
 
+    // fetch recipe information based on recipe id
     fetchData(id) {
         DataController.makeRequest('/recipes/' + id + '/information', {}, data => {
             this.setState({
                 originalSource: data.sourceUrl,
+                creditText: data.creditText,
                 recipeId: data.id,
                 recipeTitle: data.title,
                 prepTime: data.readyInMinutes,
@@ -57,6 +59,7 @@ class Recipe extends React.Component {
         });
     }
 
+    //fetch similar recipes based on current recipe id
     fetchSimilarData(id) {
         DataController.makeRequest('/recipes/' + id + '/similar', {}, data => {
             console.log(data);
@@ -79,12 +82,16 @@ class Recipe extends React.Component {
                 <InstructionsList id={this.state.recipeId} />
                 <SimilarRecipes recipes={this.state.similarRecipes} />
                 <footer role="contentinfo">
+                <p>Recipe from {this.state.creditText}</p>
+                <a href={this.state.originalSource}>Link to source</a>
                 </footer>
             </div>
         )
     }
 }
 
+// List of ingredients
+// Parameter: Array of ingredients from current recipe
 class IngredientList extends React.Component {
     render() {
         var ingredientItems = this.props.ingredients.map(function (obj, index) {
@@ -100,6 +107,7 @@ class IngredientList extends React.Component {
     }
 }
 
+// A single ingredient
 class IngredientItem extends React.Component {
     render() {
         var string = this.props.item.amount + ' ' + this.props.item.unitLong + ' ' + this.props.item.name;
@@ -117,6 +125,8 @@ class IngredientItem extends React.Component {
     }
 }
 
+// List of instructions
+// Parameter: Current recipe id
 class InstructionsList extends React.Component {
     constructor(props) {
         super(props);
@@ -127,9 +137,9 @@ class InstructionsList extends React.Component {
         this.fetchData(this.props.id);
     }
 
+    // fetch detailed instructions for current recipe
     fetchData(id) {
         DataController.makeRequest('/recipes/' + id + '/analyzedInstructions', {}, data => {
-            //console.log(data);
             this.setState({ instructionsArray: data })
         });
     }
@@ -148,6 +158,7 @@ class InstructionsList extends React.Component {
     }
 }
 
+// A single step in the instructions list
 class InstructionsItem extends React.Component {
     render() {
         var eachStep = this.props.section.steps.map(function (obj) {
@@ -165,6 +176,8 @@ class InstructionsItem extends React.Component {
     }
 }
 
+// Similar recipe cards
+// Parameter: Array of similar recipes
 class SimilarRecipes extends React.Component {
 
     render() {
@@ -180,6 +193,7 @@ class SimilarRecipes extends React.Component {
     }
 }
 
+// A single recipe card
 class RecipeCard extends React.Component {
 
     render() {

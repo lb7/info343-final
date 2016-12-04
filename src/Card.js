@@ -2,6 +2,7 @@ import React from 'react';
 import {Card, CardTitle, CardText, CardActions} from 'react-mdl';
 import { Link } from 'react-router';
 
+// A template to be used for each recipe card
 class CardTemplate extends React.Component{
     render(){
         return(
