@@ -1,5 +1,6 @@
 import React from 'react';
 import DataController from './DataController';
+import CardTemplate from './Card';
 
 class Results extends React.Component {
     constructor(props) {
@@ -17,10 +18,13 @@ class Results extends React.Component {
 
         recipes.forEach(recipe => {
             let card =
-                <li key={recipe.title}>
-                    <img src={recipe.image} width={128} height={128}/>
-                    <p>{recipe.title}</p>
-                </li>;
+             <div className = 'cardTemplate'>
+                <CardTemplate image = {recipe.image} title = {recipe.title} id = {recipe.id}/>
+            </div>
+                // <li key={recipe.title}>
+                //     <img src={recipe.image} width={128} height={128}/>
+                //     <p>{recipe.title}</p>
+                // </li>;
             cards.push(card);
         });
         this.setState({cards: cards});
