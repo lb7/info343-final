@@ -185,7 +185,7 @@ class RecipeCard extends React.Component {
 
         return (
             <Card shadow={0} style={{ width: '320px', height: '320px', margin: 'auto' }}>
-                <CardTitle expand style={{ color: '#fff', background: 'url(https://spoonacular.com/recipeImages/' + this.props.recipe.image + ')' }} />
+                <CardTitle expand style={{ color: '#fff', background: 'url(https://spoonacular.com/recipeImages/'+ this.props.recipe.image + ') center / cover'}} />
                 <CardText>
                     {this.props.recipe.title}
                 </CardText>
