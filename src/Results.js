@@ -20,7 +20,7 @@ class Results extends React.Component {
             let card =
              <div className = 'cardTemplate'>
                 <CardTemplate image = {recipe.image} title = {recipe.title} id = {recipe.id}/>
-            </div>
+            </div>;
                 // <li key={recipe.title}>
                 //     <img src={recipe.image} width={128} height={128}/>
                 //     <p>{recipe.title}</p>
@@ -30,10 +30,18 @@ class Results extends React.Component {
         this.setState({cards: cards});
     }
 
-    componentWillMount() {
+    search() {
         DataController.makeRequest('/recipes/searchComplex',
             this.props.location.search,
             this.searchCallback);
+    }
+
+    componentWillReceiveProps() {
+        this.search();
+    }
+
+    componentWillMount() {
+        this.search();
     }
 
     render() {
