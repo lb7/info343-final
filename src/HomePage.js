@@ -40,17 +40,12 @@ class RandomRecipeList extends React.Component {
 
     render() {
         var randomRecipes = this.state.results;
-        var withInstructions = [];
-        randomRecipes.forEach((recipe) => {
-            if(recipe.instructions !== null) {
-                withInstructions.push(recipe);
-            };
+        var withInstructions = randomRecipes.filter((recipe) => {
+            return recipe.instructions !== null;
         });
-
         var recipeCards = withInstructions.slice(0,7).map((recipe) => {
             return <RecipeCard recipe={recipe} key={recipe.id} />
         });
-        console.log(recipeCards);
 
         return (
             <div className="random-recipes">
