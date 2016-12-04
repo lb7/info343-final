@@ -30,6 +30,9 @@ class App extends React.Component {
               <Link to={{pathname: '/search/results', query: this.state}}>
                         <Button raised colored>Search</Button>
                     </Link>
+                <Link to='/search'>
+                        <Button raised colored>Advanced Search</Button>
+                    </Link>
         </div>
             </div>
             </main>
