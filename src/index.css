@@ -37,6 +37,9 @@ body {
   text-align: center;
   margin: 5em;
 }
+h2{
+  font-family: 'Quicksand', sans-serif;
+}
 
 a{
   text-decoration: none;
@@ -73,4 +76,6 @@ a{
 .mdl-list {
   text-align: left;
 }
-
+.recipeTitle{
+  font-family: 'Snippet', sans-serif;
+}
