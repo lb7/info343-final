@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Link, Router} from 'react-router';
-import {Button, Textfield} from 'react-mdl';
-import {Navigation, Drawer, Content, Layout, Header} from 'react-mdl';
+import {Button, Textfield, Navigation, Drawer, Content, Layout, Header} from 'react-mdl';
+import {FooterLinkList, FooterSection, Footer} from 'react-mdl';
+
 
 class App extends React.Component {
     constructor(props) {
@@ -40,6 +41,9 @@ class App extends React.Component {
             </div>
             </main>
                 {this.props.children}
+                <div className = "footer">
+                <CommonFooter />
+                </div>
             </div>
         )
     }
@@ -101,6 +105,20 @@ class SearchBar extends React.Component{
                     />
                     
             </div>
+        );
+    }
+}
+
+class CommonFooter extends React.Component{
+    render(){
+        return(
+            <Footer size="mini">
+                <FooterSection type="left" logo="How to Cook That">
+                <FooterLinkList>
+                    <a href="https://spoonacular.com/food-api">API Credits: Spoonacular</a>
+                </FooterLinkList>
+                </FooterSection>
+            </Footer>
         );
     }
 }
