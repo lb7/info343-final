@@ -95,9 +95,10 @@ class Recipe extends React.Component {
 class IngredientList extends React.Component {
     render() {
         var rowArray = [];
-        var ingredientItems = this.props.ingredients.map(function (obj) {
+        var ingredientItems = this.props.ingredients.map(function (obj, index) {
             var quantityString = obj.amount + ' ' + obj.unitLong;
             var ingredientObj = {
+                id: index,
                 image: <img className="ingredientImage" src={obj.image} />,
                 ingredient: obj.name,
                 quantity: quantityString
@@ -108,7 +109,9 @@ class IngredientList extends React.Component {
         return (
             <div className="container">
                 <DataTable
+                    selectable
                     shadow={5}
+                    rowKeyColumn="id"
                     rows= {rowArray}
                     >
                     <TableHeader name="image"></TableHeader>
