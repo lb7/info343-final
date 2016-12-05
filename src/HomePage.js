@@ -50,7 +50,7 @@ class RandomRecipeList extends React.Component {
 
         return (
             <div className="random-recipes">
-                <h2>Random Recipes for the Week</h2>
+                <h2>Explore New Recipes!</h2>
                 <div className="cards-container">
                     {recipeCards}
                 </div>

@@ -1,14 +1,14 @@
 import React from 'react';
-import {Card, CardTitle, CardText, CardActions} from 'react-mdl';
+import { Card, CardTitle, CardText, CardActions } from 'react-mdl';
 import { Link } from 'react-router';
 
 // A template to be used for each recipe card
-class CardTemplate extends React.Component{
-    render(){
-        return(
-             <Card shadow={0} style={{ width: '320px', height: '320px', margin: 'auto' }}>
-                <CardTitle expand style={{ color: '#fff', background: 'url(' + this.props.image + ') center / cover'}} />
-                <CardText>
+class CardTemplate extends React.Component {
+    render() {
+        return (
+            <Card shadow={3} style={{ width: '320px', height: '320px', margin: '.5em' }}>
+                <CardTitle expand style={{ color: '#8cb0f2', background: 'url(' + this.props.image + ') center / cover' }} />
+                <CardText style={{ background: '#fff' }}>
                     {this.props.title}
                 </CardText>
                 <CardActions border>
@@ -18,4 +18,4 @@ class CardTemplate extends React.Component{
         );
     }
 }
- export default CardTemplate;
+export default CardTemplate;
