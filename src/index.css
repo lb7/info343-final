@@ -76,4 +76,6 @@ a{
 .mdl-list {
   text-align: left;
 }
-
+.recipeTitle{
+  font-family: 'Snippet', sans-serif;
+}
