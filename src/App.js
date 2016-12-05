@@ -24,9 +24,6 @@ class App extends React.Component {
     render() {
         return (
             <div>
-             <main className="container">
-          <div className="row">
-            <div className="col-xs-3">
               <NavigationLinks />
               <SearchBar query={this.state.query} callback={this.stateUpdate}/>
               <div className="searchContainer">
@@ -36,11 +33,9 @@ class App extends React.Component {
                     <Link to='/search'>
                         <Button className="advancedButton" raised colored>Advanced Search</Button>
                     </Link>
-                </div>
-        </div>
             </div>
-            </main>
-                    <LoginDialog openDialog={this.state.openDialog}/>
+          
+                <LoginDialog openDialog={this.state.openDialog}/>
                 {this.props.children}
                 <div className = "footer">
                 <CommonFooter />
@@ -57,11 +52,8 @@ class NavigationLinks extends React.Component {
         <Layout fixedHeader style={{background: 'url(http://www.altaromablog.it/wp-content/uploads/2014/11/roma-food-3.jpg) center / cover'}}>
         <Header className="headerTitle" transparent title="Cook This, Not That!" style={{color: 'white'}}>
             <Navigation>
-                <Link to='/'>Homepage</Link>
+                <Link className = "headerText" to='/'>Homepage</Link>
             </Navigation>
-        <blockquote className="citeImage" cite="http://www.altaromablog.it/wp-content/uploads/2014/11/roma-food-3.jpg">
-         Credits: Alta Roma Blog
-        </blockquote>
         </Header>
         <Drawer title="Quick Links">
             <Navigation>
@@ -111,6 +103,7 @@ class CommonFooter extends React.Component{
                 <FooterSection type="left" logo="How to Cook That">
                 <FooterLinkList>
                     <a href="https://spoonacular.com/food-api">API Credits: Spoonacular</a>
+                    <a href="http://www.altaromablog.it/">Photo Credit: Alta Roma Blog</a>
                 </FooterLinkList>
                 </FooterSection>
             </Footer>

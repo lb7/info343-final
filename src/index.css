@@ -41,9 +41,14 @@ body {
 a{
   text-decoration: none;
 }
-.citeImage{
-  font-size: small;
-  margin: 5 40%;
+.headerText:hover{
+  color: #D3D3D3;
+}
+
+.headerText{
+  font-weight: bold;
+  float: right;
+  font-size: large;
 }
 
 #root {
