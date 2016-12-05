@@ -76,6 +76,8 @@ class Recipe extends React.Component {
                     <h1 className="recipeTitle">{this.state.recipeTitle}</h1>
                     <h2>Serves: {this.state.servings}</h2>
                     <h2>Preparation Time: {this.state.prepTime}</h2>
+                    <p>Recipe from {this.state.creditText}</p>
+                    <a href={this.state.originalSource}>Link to source</a>
                 </header>
                 <img role="presentation" className="recipeImage" src={this.state.image} alt={this.state.title} />
                 <IngredientList ingredients={this.state.ingredients} />
@@ -83,10 +85,6 @@ class Recipe extends React.Component {
                 <div className="similarRecipeBox" />
                 <SimilarRecipes recipes={this.state.similarRecipes} />
                 <CommentForm id={this.state.recipeId} />
-                <footer role="contentinfo">
-                    <p>Recipe from {this.state.creditText}</p>
-                    <a href={this.state.originalSource}>Link to source</a>
-                </footer>
             </div>
         )
     }
@@ -100,7 +98,6 @@ class IngredientList extends React.Component {
         this.props.ingredients.map(function (obj, index) {
             var quantityString = obj.amount + ' ' + obj.unitLong;
             var ingredientObj = {
-                id: index,
                 image: <img role="presentation" className="ingredientImage" src={obj.image} alt={obj.name} />,
                 ingredient: obj.name,
                 quantity: quantityString
@@ -113,7 +110,6 @@ class IngredientList extends React.Component {
                 <h3>Ingredients</h3>
                 <DataTable
                     shadow={5}
-                    rowKeyColumn="id"
                     rows={rowArray}
                     >
                     <TableHeader name="image"></TableHeader>

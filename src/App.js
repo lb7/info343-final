@@ -75,7 +75,6 @@ class NavigationLinks extends React.Component {
 class SearchBar extends React.Component {
 
     handleChange(e) {
-        console.log(e.target.value);
         this.props.callback(e.target.value);
     }
 
