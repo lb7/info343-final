@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem, ListItemAction, ListItemContent, Card, CardTitle, CardText, CardActions } from 'react-mdl';
+import { List, ListItem, ListItemAction, ListItemContent, DataTable, TableHeader } from 'react-mdl';
 import { Link } from 'react-router';
 import DataController from './DataController';
 import CardTemplate from './Card';
@@ -82,45 +82,40 @@ class Recipe extends React.Component {
                 <InstructionsList id={this.state.recipeId} />
                 <SimilarRecipes recipes={this.state.similarRecipes} />
                 <footer role="contentinfo">
-                <p>Recipe from {this.state.creditText}</p>
-                <a href={this.state.originalSource}>Link to source</a>
+                    <p>Recipe from {this.state.creditText}</p>
+                    <a href={this.state.originalSource}>Link to source</a>
                 </footer>
             </div>
         )
     }
 }
 
-// List of ingredients
+// Table of ingredients
 // Parameter: Array of ingredients from current recipe
 class IngredientList extends React.Component {
     render() {
-        var ingredientItems = this.props.ingredients.map(function (obj, index) {
-            return <IngredientItem item={obj} key={index} />
+        var rowArray = [];
+        var ingredientItems = this.props.ingredients.map(function (obj) {
+            var quantityString = obj.amount + ' ' + obj.unitLong;
+            var ingredientObj = {
+                image: <img className="ingredientImage" src={obj.image} />,
+                ingredient: obj.name,
+                quantity: quantityString
+            };
+            return rowArray.push(ingredientObj)
         });
 
         return (
             <div className="container">
-                <h3 className="subtitle">Ingredients:</h3>
-                {ingredientItems}
+                <DataTable
+                    shadow={5}
+                    rows= {rowArray}
+                    >
+                    <TableHeader name="image"></TableHeader>
+                    <TableHeader name="ingredient">Ingredient(s)</TableHeader>
+                    <TableHeader numeric name="quantity">Amount</TableHeader>
+                </DataTable>
             </div>
-        );
-    }
-}
-
-// A single ingredient
-class IngredientItem extends React.Component {
-    render() {
-        var string = this.props.item.amount + ' ' + this.props.item.unitLong + ' ' + this.props.item.name;
-
-        return (
-            <List style={{ width: '1000px' }}>
-                <ListItem>
-                    <ListItemAction>
-                        <img className="ingredientImg" src={this.props.item.image} alt="ingredient image" />
-                    </ListItemAction>
-                    <ListItemContent>{string}</ListItemContent>
-                </ListItem>
-            </List>
         );
     }
 }
@@ -199,8 +194,8 @@ class RecipeCard extends React.Component {
     render() {
 
         return (
-            <div className = 'cardTemplate'>
-                <CardTemplate image = {'https://spoonacular.com/recipeImages/'+ this.props.recipe.image} title = {this.props.recipe.title} id = {this.props.recipe.id}/>
+            <div className='cardTemplate'>
+                <CardTemplate image={'https://spoonacular.com/recipeImages/' + this.props.recipe.image} title={this.props.recipe.title} id={this.props.recipe.id} />
             </div>
         );
     }
