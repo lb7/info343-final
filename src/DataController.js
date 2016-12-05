@@ -74,6 +74,10 @@ class DataController {
             comment: comment
         })
     }
+
+    static getComments(id, callback) {
+        firebase.database().ref('recipes/' + id).once('value').then(snapshot => callback(snapshot));
+    }
 }
 
 

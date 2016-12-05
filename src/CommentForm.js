@@ -7,8 +7,35 @@ class CommentForm extends React.Component {
         super(props);
 
         this.state = {
-            comment: ''
-        }
+            comment: '',
+            comments: []
+        };
+
+        this.getComments = this.getComments.bind(this);
+        this.commentsCallback = this.commentsCallback.bind(this);
+    }
+
+    componentWillMount() {
+        this.getComments();
+    }
+
+    componentWillReceiveProps() {
+        this.getComments();
+    }
+
+    getComments() {
+        DataController.getComments(this.props.id, this.commentsCallback);
+    }
+
+    commentsCallback(snapshot) {
+        let comments = [];
+
+        snapshot.forEach(child => {
+            let comment = <Comment name={child.val().displayName} text={child.val().comment} />;
+            comments.push(comment);
+        });
+
+        this.setState({comments: comments});
     }
 
     render() {
@@ -22,8 +49,19 @@ class CommentForm extends React.Component {
                     rows={3}
                 />
                 <Button onClick={() => DataController.submitComment(this.props.id, this.state.comment)}>Submit</Button>
+                {this.state.comments}
             </div>
         )
+    }
+}
+
+class Comment extends React.Component {
+    render() {
+        return (
+            <div>
+                <p>{this.props.name}: {this.props.text}</p>
+            </div>
+        );
     }
 }
 
