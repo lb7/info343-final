@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 import 'es6-promise';
+import * as firebase from 'firebase';
 
 class DataController {
     static makeRequest(endpoint, parameters, callback) {
@@ -33,6 +34,38 @@ class DataController {
             callback(json);
         })
     }
+
+    static signIn(email, password, callback) {
+        firebase.auth().signInWithEmailAndPassword(email, password).then(user => {
+            callback(user);
+        }).catch(e => {
+            if (e.code === 'auth/user-not-found') {
+                this.createUser(email, password, callback);
+            }
+            console.log(e.message)
+
+        })
+    }
+
+    static createUser(email, password, callback) {
+        firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
+            callback(user);
+        }).catch(e => {
+            console.log(e.message);
+        });
+    }
+
+    static setName(name) {
+        firebase.auth().currentUser.updateProfile({displayName: name, photoURL: null}).then(() => {
+            console.log(firebase.auth().currentUser)
+        });
+    }
+
+    static getUser() {
+        return firebase.auth().currentUser;
+    }
 }
+
+
 
 export default DataController;
