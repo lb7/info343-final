@@ -28,12 +28,14 @@ class App extends React.Component {
             <div className="col-xs-3">
               <NavigationLinks />
               <SearchBar query = {this.state.query} callback={this.stateUpdate}/>
-              <Link to={{pathname: '/search/results', query: this.state}}>
-                        <Button raised colored>Search</Button>
+              <div className = "searchContainer">
+                    <Link to={{pathname: '/search/results', query: this.state}}>
+                        <Button className = "searchButton" raised colored>Search</Button>
                     </Link>
-                <Link to='/search'>
-                        <Button raised colored>Advanced Search</Button>
+                    <Link to='/search'>
+                        <Button className = "advancedButton" raised colored>Advanced Search</Button>
                     </Link>
+                </div>
         </div>
             </div>
             </main>
@@ -86,7 +88,7 @@ class SearchBar extends React.Component{
 
     render(){
         return (
-            <div>
+            <div className="searchBar">
               <Textfield
                         onChange={(e) => {this.handleChange(e)}}
                         value={this.props.query}

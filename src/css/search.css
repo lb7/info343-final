@@ -1,3 +1,28 @@
 .searchInput {
     display: block;
 }
+.searchBar{
+    margin-top: 20px;
+    margin-left: 400px;
+    padding: 5px 9px;
+    height: 10px;
+    margin-right: 90px;
+    width: 300px;
+   
+}
+.searchButton{
+    display: inline-block;
+    position: center;
+    margin-left: 400px;
+    
+    
+}
+.advancedButton{
+    display: inline-block;
+    position: center;
+    margin-left: 10px;
+}
+.searchContainer{
+    margin-left: 325px;
+    margin-bottom: 100px;
+}
