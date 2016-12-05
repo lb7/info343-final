@@ -24,6 +24,7 @@ body {
 
 .card img {
   width: 100%;
+  height: auto;
 }
 
 .card .content > :not(img) {
@@ -33,6 +34,8 @@ body {
 
 .random-recipes {
   text-align: center;
+  margin: 5em;
+
 }
 
 a{
@@ -43,3 +46,10 @@ a{
   margin: 5 40%;
 }
 
+#root {
+  background-color: #eff5f5;
+}
+
+.homepage {
+  display: center;
+}
