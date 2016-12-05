@@ -37,6 +37,9 @@ body {
   margin: 5em;
 
 }
+h2{
+  font-family: 'Quicksand', sans-serif;
+}
 
 a{
   text-decoration: none;
