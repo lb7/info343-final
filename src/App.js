@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Link, Router} from 'react-router';
 import {Button, Textfield} from 'react-mdl';
+import {Navigation, Drawer, Content, Layout, Header} from 'react-mdl';
 
 class App extends React.Component {
     constructor(props) {
@@ -45,12 +46,32 @@ class App extends React.Component {
 class NavigationLinks extends React.Component {
     render() {
         return (
-            <nav>
-                <h2>Navigation</h2>
-                <ul className="list-unstyled">
-                    <li><Link to="/" >Homepage</Link></li>
-                </ul>
-            </nav>
+            // <nav>
+            //     <h2>Navigation</h2>
+            //     <ul className="list-unstyled">
+            //         <li><Link to="/" >Homepage</Link></li>
+            //     </ul>
+            // </nav>
+        <div style={{height: '300px', position: 'relative'}}>
+        <Layout style={{background: 'url(http://www.simplemenuplanning.com/images/banner.jpg.jpg) center / cover'}}>
+        <Header transparent title="Cook This, Not That!" style={{color: 'white'}}>
+            <Navigation>
+                <Link to='/'>Homepage</Link>
+            </Navigation>
+        </Header>
+        <Drawer title="Quick Links">
+            <Navigation>
+                <Link to={{pathname: '/search/results', query: {query: 'christmas'} }}>Winter Holiday Recipes</Link>
+                <Link to={{pathname: '/search/results', query: {query: 'appetizer'} }}>Appetizers</Link>
+                <Link to={{pathname: '/search/results', query: {query: 'breakfast'} }}>Breakfast</Link>
+                <Link to={{pathname: '/search/results', query: {query: 'dinner'} }}>Dinner</Link>
+                <Link to={{pathname: '/search/results', query: {query: 'drinks'} }}>Drinks</Link>
+                <Link to={{pathname: '/search/results', query: {query: 'dessert'} }}>Desserts</Link>
+            </Navigation>
+        </Drawer>
+        <Content />
+    </Layout>
+</div>
 
         );
     }
@@ -80,3 +101,4 @@ class SearchBar extends React.Component{
 }
 
 export default App;
+

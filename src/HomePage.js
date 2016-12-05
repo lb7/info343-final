@@ -44,7 +44,7 @@ class RandomRecipeList extends React.Component {
         var withInstructions = randomRecipes.filter((recipe) => {
             return recipe.instructions !== null;
         });
-        var recipeCards = withInstructions.slice(0,7).map((recipe) => {
+        var recipeCards = withInstructions.slice(0,12).map((recipe) => {
             return <RecipeCard recipe={recipe} key={recipe.id} />
         });
 
