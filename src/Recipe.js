@@ -2,6 +2,7 @@ import React from 'react';
 import { List, ListItem, DataTable, TableHeader } from 'react-mdl';
 import DataController from './DataController';
 import CardTemplate from './Card';
+import CommentForm from './CommentForm';
 
 class Recipe extends React.Component {
     constructor(props) {
@@ -80,6 +81,7 @@ class Recipe extends React.Component {
                 <IngredientList ingredients={this.state.ingredients} />
                 <InstructionsList id={this.state.recipeId} />
                 <SimilarRecipes recipes={this.state.similarRecipes} />
+                <CommentForm id={this.state.recipeId}/>
                 <footer role="contentinfo">
                     <p>Recipe from {this.state.creditText}</p>
                     <a href={this.state.originalSource}>Link to source</a>

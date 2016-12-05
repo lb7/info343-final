@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import {Button, Textfield} from 'react-mdl';
 import {Navigation, Drawer, Content, Layout, Header} from 'react-mdl';
+import LoginDialog from './LoginDialog';
 
 class App extends React.Component {
     constructor(props) {
@@ -9,8 +10,9 @@ class App extends React.Component {
 
         this.state={
             query: ''
-        }
-        this.stateUpdate=this.stateUpdate.bind(this);
+
+        };
+        this.stateUpdate = this.stateUpdate.bind(this);
     }
 
     stateUpdate(input) {
@@ -36,6 +38,7 @@ class App extends React.Component {
         </div>
             </div>
             </main>
+                    <LoginDialog openDialog={this.state.openDialog}/>
                 {this.props.children}
             </div>
         )

@@ -6,12 +6,22 @@ import Search from './Search';
 import Results from './Results';
 import Recipe from './Recipe';
 import HomePage from './HomePage';
+import * as firebase from 'firebase';
 
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
 
 import './index.css';
 import './css/search.css';
+
+const config = {
+    apiKey: "AIzaSyCIti-HKJ951qi2jSZ9mepk9pz1Hf88KNo",
+    authDomain: "info343-final-35daa.firebaseapp.com",
+    databaseURL: "https://info343-final-35daa.firebaseio.com",
+    storageBucket: "info343-final-35daa.appspot.com",
+    messagingSenderId: "238150461718"
+};
+firebase.initializeApp(config);
 
 ReactDOM.render(
     <Router history={hashHistory}>
