@@ -25,8 +25,8 @@ class App extends React.Component {
         return (
             <div>
               <NavigationLinks />
-              <SearchBar query={this.state.query} callback={this.stateUpdate}/>
               <div className="searchContainer">
+                <SearchBar query={this.state.query} callback={this.stateUpdate}/>
                     <Link to={{pathname: '/search/results', query: this.state}}>
                         <Button className="searchButton" raised colored>Search</Button>
                     </Link>

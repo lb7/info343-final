@@ -1,31 +1,16 @@
 .searchInput {
     display: block;
 }
-.searchBar{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    margin-left: 400px;
-    padding: 5px 9px;
-    height: 10px;
-    margin-right: 90px;
-    width: 300px;
-   
-}
 .searchButton{
-    display: inline-block;
-    position: center;
-    margin-left: 400px;
+    margin: 5px;
 }
 .advancedButton{
-    display: inline-block;
-    position: center;
-    margin-left: 10px;
+    margin: 5px;
 
 }
 .searchContainer{
     display: flex;
-    flex-wrap: wrap;
-    margin-left: 325px;
-    margin-bottom: 100px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 20px;
 }
