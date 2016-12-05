@@ -43,7 +43,7 @@ class Results extends React.Component {
     render() {
         return (
             <div>
-                <ul>{this.state.cards}</ul>
+                <ul className="search-results">{this.state.cards}</ul>
             </div>
         )
     }
