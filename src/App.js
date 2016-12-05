@@ -54,7 +54,7 @@ class NavigationLinks extends React.Component {
     render() {
         return (
         <div style={{height: '300px', position: 'relative'}}>
-        <Layout style={{background: 'url(http://www.altaromablog.it/wp-content/uploads/2014/11/roma-food-3.jpg) center / cover'}}>
+        <Layout fixedHeader style={{background: 'url(http://www.altaromablog.it/wp-content/uploads/2014/11/roma-food-3.jpg) center / cover'}}>
         <Header className="headerTitle" transparent title="Cook This, Not That!" style={{color: 'white'}}>
             <Navigation>
                 <Link to='/'>Homepage</Link>
