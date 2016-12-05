@@ -55,11 +55,14 @@ class NavigationLinks extends React.Component {
             //     </ul>
             // </nav>
         <div style={{height: '300px', position: 'relative'}}>
-        <Layout style={{background: 'url(http://www.simplemenuplanning.com/images/banner.jpg.jpg) center / cover'}}>
-        <Header transparent title="Cook This, Not That!" style={{color: 'white'}}>
+        <Layout style={{background: 'url(http://www.altaromablog.it/wp-content/uploads/2014/11/roma-food-3.jpg) center / cover'}}>
+        <Header className = "headerTitle" transparent title="Cook This, Not That!" style={{color: 'white'}}>
             <Navigation>
                 <Link to='/'>Homepage</Link>
             </Navigation>
+        <blockquote className = "citeImage" cite="http://www.altaromablog.it/wp-content/uploads/2014/11/roma-food-3.jpg">
+         Credits: Alta Roma Blog
+        </blockquote>
         </Header>
         <Drawer title="Quick Links">
             <Navigation>
