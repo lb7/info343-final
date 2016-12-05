@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Link, Router} from 'react-router';
-import {Button, Textfield, Navigation, Drawer, Content, Layout, Header} from 'react-mdl';
-import {FooterLinkList, FooterSection, Footer} from 'react-mdl';
+import { Link, Router } from 'react-router';
+import { Button, Textfield, Navigation, Drawer, Content, Layout, Header } from 'react-mdl';
+import { FooterLinkList, FooterSection, Footer } from 'react-mdl';
 import LoginDialog from './LoginDialog';
 
 
@@ -10,7 +10,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state={
+        this.state = {
             query: ''
 
         };
@@ -18,7 +18,7 @@ class App extends React.Component {
     }
 
     stateUpdate(input) {
-        this.setState({query: input});
+        this.setState({ query: input });
     }
 
     render() {
@@ -37,8 +37,8 @@ class App extends React.Component {
           
                 <LoginDialog openDialog={this.state.openDialog}/>
                 {this.props.children}
-                <div className = "footer">
-                <CommonFooter />
+                <div className="footer">
+                    <CommonFooter />
                 </div>
             </div>
         )
@@ -68,39 +68,39 @@ class NavigationLinks extends React.Component {
         <Content />
     </Layout>
 </div>
-
         );
     }
 }
 
-class SearchBar extends React.Component{
+class SearchBar extends React.Component {
 
     handleChange(e) {
         console.log(e.target.value);
         this.props.callback(e.target.value);
     }
 
-    render(){
+    render() {
         return (
             <div className="searchBar">
-              <Textfield
-                        onChange={(e) => {this.handleChange(e)}}
-                        value={this.props.query}
-                        label="Search"
-                        className="searchInput"
-                        floatingLabel
+                <Textfield
+                    onChange={(e) => { this.handleChange(e) } }
+                    value={this.props.query}
+                    label="Search"
+                    className="searchInput"
+                    floatingLabel
                     />
-                    
+
             </div>
         );
     }
 }
 
-class CommonFooter extends React.Component{
-    render(){
-        return(
+class CommonFooter extends React.Component {
+    render() {
+        return (
             <Footer size="mini">
                 <FooterSection type="left" logo="How to Cook That">
+
                 <FooterLinkList>
                     <a href="https://spoonacular.com/food-api">API Credits: Spoonacular</a>
                     <a href="http://www.altaromablog.it/">Photo Credit: Alta Roma Blog</a>
