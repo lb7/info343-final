@@ -4,14 +4,15 @@ body {
   font-family: sans-serif;
 }
 
-.cards-container {
+.cards-container, .similarRecipes  {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -1em;
+  margin: 0;
+  padding-left: 4em;
 }
 
-.card {
-  flex-basis: 14%;
+.card, .cardTemplate {
+  flex-basis: 10em;
   flex-grow: 0;
   margin-bottom: 1.5em;
 }
@@ -32,24 +33,47 @@ body {
   margin-right: 5px;
 }
 
-.random-recipes {
+.random-recipes, .banner {
   text-align: center;
   margin: 5em;
-
+}
+h2{
+  font-family: 'Quicksand', sans-serif;
 }
 
 a{
   text-decoration: none;
 }
-.citeImage{
-  font-size: small;
-  margin: 5 40%;
+
+.headerText:hover{
+  color: #D3D3D3;
+}
+
+.headerText{
+  font-weight: bold;
+  float: right;
+  font-size: large;
 }
 
 #root {
   background-color: #eff5f5;
 }
 
-.homepage {
-  display: center;
+.banner {
+ text-align: center; 
 }
+
+.mdl-data-table{
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.recipeImage {
+  padding: 2em;
+}
+
+.mdl-list {
+  text-align: left;
+}
+

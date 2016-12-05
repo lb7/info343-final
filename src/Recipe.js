@@ -71,7 +71,7 @@ class Recipe extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="banner">
                 <header role="banner">
                     <h1 className="recipeTitle">{this.state.recipeTitle}</h1>
                     <h2>Serves: {this.state.servings}</h2>
@@ -82,8 +82,9 @@ class Recipe extends React.Component {
                 <img role="presentation" className="recipeImage" src={this.state.image} alt={this.state.title} />
                 <IngredientList ingredients={this.state.ingredients} />
                 <InstructionsList id={this.state.recipeId} />
+                <div className="similarRecipeBox" />
                 <SimilarRecipes recipes={this.state.similarRecipes} />
-                <CommentForm id={this.state.recipeId}/>
+                <CommentForm id={this.state.recipeId} />
             </div>
         )
     }
@@ -105,7 +106,8 @@ class IngredientList extends React.Component {
         });
 
         return (
-            <div className="container">
+            <div>
+                <h3>Ingredients</h3>
                 <DataTable
                     shadow={5}
                     rows={rowArray}
@@ -142,9 +144,10 @@ class InstructionsList extends React.Component {
         var instructionsItem = this.state.instructionsArray.map(function (obj, index) {
             return <InstructionsItem section={obj} key={index} />
         });
+        console.log(instructionsItem)
 
         return (
-            <div className="container">
+            <div className="container-instructions">
                 <h3>Instructions:</h3>
                 {instructionsItem}
             </div>
@@ -156,7 +159,7 @@ class InstructionsList extends React.Component {
 class InstructionsItem extends React.Component {
     render() {
         var eachStep = this.props.section.steps.map(function (obj, index) {
-            return <ListItem key={index}>{obj.step}</ListItem>
+            return <ListItem key={index}>{index + 1 + ". " + obj.step}</ListItem>
         });
 
         return (
@@ -180,8 +183,11 @@ class SimilarRecipes extends React.Component {
         });
 
         return (
-            <div className="similarRecipes">
-                {recipeCards}
+            <div>
+                <h3>You might also like</h3>
+                <div className="similarRecipes">
+                    {recipeCards}
+                </div>
             </div>
         );
     }
