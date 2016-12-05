@@ -11,6 +11,7 @@ import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
 
 import './index.css';
+import './css/search.css';
 
 ReactDOM.render(
     <Router history={hashHistory}>
