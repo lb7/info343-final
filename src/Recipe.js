@@ -1,8 +1,8 @@
 import React from 'react';
-import { List, ListItem, ListItemAction, ListItemContent, DataTable, TableHeader } from 'react-mdl';
-import { Link } from 'react-router';
+import { List, ListItem, DataTable, TableHeader } from 'react-mdl';
 import DataController from './DataController';
 import CardTemplate from './Card';
+import CommentForm from './CommentForm';
 
 class Recipe extends React.Component {
     constructor(props) {
@@ -77,10 +77,11 @@ class Recipe extends React.Component {
                     <h2>Serves: {this.state.servings}</h2>
                     <h2>Preparation Time: {this.state.prepTime}</h2>
                 </header>
-                <img className="recipeImage" src={this.state.image} alt="recipe image" />
+                <img role="presentation" className="recipeImage" src={this.state.image} alt={this.state.title} />
                 <IngredientList ingredients={this.state.ingredients} />
                 <InstructionsList id={this.state.recipeId} />
                 <SimilarRecipes recipes={this.state.similarRecipes} />
+                <CommentForm id={this.state.recipeId}/>
                 <footer role="contentinfo">
                     <p>Recipe from {this.state.creditText}</p>
                     <a href={this.state.originalSource}>Link to source</a>
@@ -95,11 +96,11 @@ class Recipe extends React.Component {
 class IngredientList extends React.Component {
     render() {
         var rowArray = [];
-        var ingredientItems = this.props.ingredients.map(function (obj, index) {
+        this.props.ingredients.map(function (obj, index) {
             var quantityString = obj.amount + ' ' + obj.unitLong;
             var ingredientObj = {
                 id: index,
-                image: <img className="ingredientImage" src={obj.image} />,
+                image: <img role="presentation" className="ingredientImage" src={obj.image} alt={obj.name} />,
                 ingredient: obj.name,
                 quantity: quantityString
             };
@@ -112,7 +113,7 @@ class IngredientList extends React.Component {
                     selectable
                     shadow={5}
                     rowKeyColumn="id"
-                    rows= {rowArray}
+                    rows={rowArray}
                     >
                     <TableHeader name="image"></TableHeader>
                     <TableHeader name="ingredient">Ingredient(s)</TableHeader>
@@ -159,8 +160,8 @@ class InstructionsList extends React.Component {
 // A single step in the instructions list
 class InstructionsItem extends React.Component {
     render() {
-        var eachStep = this.props.section.steps.map(function (obj) {
-            return <ListItem>{obj.step}</ListItem>
+        var eachStep = this.props.section.steps.map(function (obj, index) {
+            return <ListItem key={index}>{obj.step}</ListItem>
         });
 
         return (

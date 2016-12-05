@@ -25,7 +25,7 @@ class RandomRecipeList extends React.Component {
         super(props);
         this.state = {
             results: []
-     };
+        };
         this.fetchData = this.fetchData.bind(this);
     }
 
@@ -35,7 +35,7 @@ class RandomRecipeList extends React.Component {
 
     fetchData() {
         DataController.makeRequest('/recipes/random', '?limitLicense=false&number=25', data => {
-            this.setState({results: data.recipes });
+            this.setState({ results: data.recipes });
         });
     }
 
@@ -44,7 +44,7 @@ class RandomRecipeList extends React.Component {
         var withInstructions = randomRecipes.filter((recipe) => {
             return recipe.instructions !== null;
         });
-        var recipeCards = withInstructions.slice(0,12).map((recipe) => {
+        var recipeCards = withInstructions.slice(0, 12).map((recipe) => {
             return <RecipeCard recipe={recipe} key={recipe.id} />
         });
 
@@ -70,8 +70,8 @@ class RecipeCard extends React.Component {
         var recipe = this.props.recipe;
 
         return (
-            <div className = 'cardTemplate'>
-                <CardTemplate image = {recipe.image} title = {recipe.title} id = {recipe.id}/>
+            <div className='cardTemplate'>
+                <CardTemplate image={recipe.image} title={recipe.title} id={recipe.id} />
             </div>
         );
     }
