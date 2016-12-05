@@ -8,11 +8,6 @@ class HomePage extends React.Component {
     render() {
         return (
             <div className="homepage">
-                {/*<header className="logo">
-                    <h1>Logo</h1>
-                </header >
-                <p>placeholder for search bar</p>
-                <p>Welcome message...</p>*/}
                 < RandomRecipeList />
             </div >
         )

@@ -71,7 +71,7 @@ class Recipe extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="banner">
                 <header role="banner">
                     <h1 className="recipeTitle">{this.state.recipeTitle}</h1>
                     <h2>Serves: {this.state.servings}</h2>
@@ -80,8 +80,9 @@ class Recipe extends React.Component {
                 <img role="presentation" className="recipeImage" src={this.state.image} alt={this.state.title} />
                 <IngredientList ingredients={this.state.ingredients} />
                 <InstructionsList id={this.state.recipeId} />
+                <div className="similarRecipeBox" />
                 <SimilarRecipes recipes={this.state.similarRecipes} />
-                <CommentForm id={this.state.recipeId}/>
+                <CommentForm id={this.state.recipeId} />
                 <footer role="contentinfo">
                     <p>Recipe from {this.state.creditText}</p>
                     <a href={this.state.originalSource}>Link to source</a>
@@ -108,9 +109,8 @@ class IngredientList extends React.Component {
         });
 
         return (
-            <div className="container">
+            <div className="ingredient-container">
                 <DataTable
-                    selectable
                     shadow={5}
                     rowKeyColumn="id"
                     rows={rowArray}
@@ -185,8 +185,11 @@ class SimilarRecipes extends React.Component {
         });
 
         return (
-            <div className="similarRecipes">
-                {recipeCards}
+            <div>
+                <h3>Similar Recipes</h3>
+                <div className="similarRecipes">
+                    {recipeCards}
+                </div>
             </div>
         );
     }
