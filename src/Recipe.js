@@ -109,7 +109,8 @@ class IngredientList extends React.Component {
         });
 
         return (
-            <div className="ingredient-container">
+            <div>
+                <h3>Ingredients</h3>
                 <DataTable
                     shadow={5}
                     rowKeyColumn="id"
@@ -147,9 +148,10 @@ class InstructionsList extends React.Component {
         var instructionsItem = this.state.instructionsArray.map(function (obj, index) {
             return <InstructionsItem section={obj} key={index} />
         });
+        console.log(instructionsItem)
 
         return (
-            <div className="container">
+            <div className="container-instructions">
                 <h3>Instructions:</h3>
                 {instructionsItem}
             </div>
@@ -161,7 +163,7 @@ class InstructionsList extends React.Component {
 class InstructionsItem extends React.Component {
     render() {
         var eachStep = this.props.section.steps.map(function (obj, index) {
-            return <ListItem key={index}>{obj.step}</ListItem>
+            return <ListItem key={index}>{index + 1 + ". " + obj.step}</ListItem>
         });
 
         return (
@@ -186,7 +188,7 @@ class SimilarRecipes extends React.Component {
 
         return (
             <div>
-                <h3>Similar Recipes</h3>
+                <h3>You might also like</h3>
                 <div className="similarRecipes">
                     {recipeCards}
                 </div>

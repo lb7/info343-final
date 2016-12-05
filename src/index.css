@@ -64,3 +64,8 @@ a{
 .recipeImage {
   padding: 2em;
 }
+
+.mdl-list {
+  text-align: left;
+}
+
