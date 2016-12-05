@@ -64,6 +64,16 @@ class DataController {
     static getUser() {
         return firebase.auth().currentUser;
     }
+
+    static submitComment(id, comment) {
+        let user = this.getUser();
+
+        firebase.database().ref('recipes/' + id).push({
+            uid: user.uid,
+            displayName: user.displayName,
+            comment: comment
+        })
+    }
 }
 
 
