@@ -27,12 +27,14 @@ class App extends React.Component {
                 <NavigationLinks />
                 <div className="searchContainer">
                     <SearchBar query={this.state.query} callback={this.stateUpdate} />
-                    <Link to={{ pathname: '/search/results', query: this.state }}>
-                        <Button className="searchButton" raised colored>Search</Button>
-                    </Link>
-                    <Link to='/search'>
-                        <Button className="advancedButton" raised colored>Advanced Search</Button>
-                    </Link>
+                    <div className="buttons">
+                        <Link to={{ pathname: '/search/results', query: this.state }}>
+                            <Button className="searchButton" raised colored>Search</Button>
+                        </Link>
+                        <Link to='/search'>
+                            <Button className="advancedButton" raised colored>Advanced Search</Button>
+                        </Link>
+                    </div>
                 </div>
 
                 <LoginDialog openDialog={this.state.openDialog} />

@@ -83,6 +83,7 @@ a{
 .mdl-list {
   text-align: left;
   border-style: solid;
+  border-radius: 10px;
 }
 
 .recipeTitle{
@@ -93,12 +94,11 @@ a{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
+  margin: 10px;
 }
 .cardTemplate{
   flex-basis: 100%;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  margin: 10px;
 }
 
 .ingredientImage{
@@ -122,10 +122,12 @@ a{
 
 }
 .searchContainer{
-    display: flex;
+    display: flex, block;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 @media (min-width: 768px) {
