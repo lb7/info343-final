@@ -71,6 +71,7 @@ a{
 .mdl-data-table{
   margin-left: auto;
   margin-right: auto;
+  max-width: 50%;
   
 }
 
@@ -95,4 +96,14 @@ a{
   flex-basis: 25%;
   margin-bottom: 10px;
   margin-right: 10px;
+}
+
+.ingredientImage{
+   max-width:100px; 
+   height:auto;
+}
+
+.recipeImage {
+  max-width:50%;
+  height: auto;
 }
