@@ -42,7 +42,8 @@ body {
   text-align: center;
   margin: 5em;
 }
-h2{
+
+h2, h3{
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -81,7 +82,9 @@ a{
 
 .mdl-list {
   text-align: left;
+  border-style: solid;
 }
+
 .recipeTitle{
   font-family: 'Snippet', sans-serif;
 }
@@ -93,7 +96,7 @@ a{
   
 }
 .cardTemplate{
-  flex-basis: 25%;
+  flex-basis: 100%;
   margin-bottom: 10px;
   margin-right: 10px;
 }
@@ -106,4 +109,32 @@ a{
 .recipeImage {
   max-width:50%;
   height: auto;
+}
+
+.searchInput {
+    display: block;
+}
+.searchButton{
+    margin: 5px;
+}
+.advancedButton{
+    margin: 5px;
+
+}
+.searchContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .cardTemplate {
+    flex-basis: 25%;
+  }
+
+  .searchContainer {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 }

@@ -42,8 +42,8 @@ class Results extends React.Component {
 
     render() {
         return (
-            <div>
-                <ul className="search-results">{this.state.cards}</ul>
+            <div className="cards-container">
+                {this.state.cards}
             </div>
         )
     }

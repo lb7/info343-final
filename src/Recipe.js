@@ -34,7 +34,6 @@ class Recipe extends React.Component {
     setData() {
         var id = this.props.params.id;
         this.setState({ recipeId: id }, () => {
-            console.log(`recipeId: ${this.state.recipeId}`);
             this.fetchData(this.state.recipeId);
             this.fetchSimilarData(this.state.recipeId);
         });
@@ -75,7 +74,7 @@ class Recipe extends React.Component {
                 <header role="banner">
                     <h1 className="recipeTitle">{this.state.recipeTitle}</h1>
                     <h2>Serves: {this.state.servings}</h2>
-                    <h2>Preparation Time: {this.state.prepTime}</h2>
+                    <h2>Preparation Time: {this.state.prepTime} minutes</h2>
                     <p>Recipe from {this.state.creditText}</p>
                     <a href={this.state.originalSource}>Link to source</a>
                 </header>
@@ -107,7 +106,7 @@ class IngredientList extends React.Component {
 
         return (
             <div>
-                <h3>Ingredients</h3>
+                <h3>Ingredients:</h3>
                 <DataTable
                     shadow={5}
                     rows={rowArray}
@@ -184,8 +183,8 @@ class SimilarRecipes extends React.Component {
 
         return (
             <div>
-                <h3>You might also like</h3>
-                <div className="similarRecipes">
+                <h3>You might also like:</h3>
+                <div className="cards-container">
                     {recipeCards}
                 </div>
             </div>
