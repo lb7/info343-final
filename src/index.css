@@ -4,57 +4,28 @@ body {
   font-family: sans-serif;
 }
 
-/*
-.cards-container, .similarRecipes  {
-
-
-.cards-container, .similarRecipes, .search-results  {
-
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding-left: 4em;
-}
-
-.card, .cardTemplate {
-  flex-basis: 10em;
-  flex-grow: 0;
-  margin-bottom: 1.5em;
-}
-
-.card .content {
-  margin: .5em .5em;
-  border: 1px solid black;
-  border-radius: 3px;
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-}
-
-.card .content > :not(img) {
-  margin-left: 5px;
-  margin-right: 5px;
-}*/
-
+/*align the recipe cards and banner on home page*/
 .random-recipes, .banner {
   text-align: center;
   margin: 5em;
 }
 
+/*font-family for header 2 and header 3*/
 h2, h3{
   font-family: 'Quicksand', sans-serif;
 }
 
+/*Homepage link on homepage*/
 a{
   text-decoration: none;
 }
 
+/*the Homepage link on homepage*/
 .headerText:hover{
   color: #D3D3D3;
 }
 
+/*font-style for text in the header*/
 .headerText{
   font-weight: bold;
   position: relative;
@@ -68,16 +39,6 @@ a{
 
 .banner {
  text-align: center; 
-}
-
-.mdl-data-table{
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 50%;
-}
-
-.recipeImage {
-  padding: 2em;
 }
 
 .mdl-list {
@@ -109,6 +70,7 @@ a{
 .recipeImage {
   max-width:50%;
   height: auto;
+  padding: 2em;
 }
 
 .searchInput {
