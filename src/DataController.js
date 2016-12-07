@@ -80,7 +80,7 @@ class DataController {
     }
 
     static getComments(id, callback) {
-        firebase.database().ref('recipes/' + id).once('value').then(snapshot => callback(snapshot));
+        firebase.database().ref('recipes/' + id).on('value', snapshot => callback(snapshot));
     }
 
     static registerAuthListener(callback) {

@@ -34,7 +34,7 @@ class CommentForm extends React.Component {
             comments.push(comment);
         });
 
-        this.setState({comments: comments});
+        this.setState({comments: comments, comment: ''});
     }
 
     render() {
