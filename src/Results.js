@@ -7,7 +7,8 @@ class Results extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: []
+            cards: [],
+            loaded: false
         };
 
         this.searchCallback = this.searchCallback.bind(this);
@@ -24,13 +25,15 @@ class Results extends React.Component {
             </div>;
             cards.push(card);
         });
-        this.setState({cards: cards});
+        this.setState({cards: cards, loaded: true});
+
     }
 
     search() {
         DataController.makeRequest('/recipes/searchComplex',
             this.props.location.search,
             this.searchCallback);
+        this.setState({loaded: false});
     }
 
     componentWillReceiveProps() {
@@ -43,8 +46,15 @@ class Results extends React.Component {
 
     render() {
         return (
-            <div className="cards-container">
-                {this.state.cards.length > 0 ? this.state.cards : <p>There were no results matching your query.</p>}
+            <div>
+                { this.state.loaded ? (
+                    <div className="cards-container">
+                        {this.state.cards.length > 0 ? this.state.cards : <p>There were no results matching your query.</p>}
+                    </div>
+                    ) : (
+                    <Spinner className="spinner"/>
+                    )
+                }
             </div>
         )
     }
