@@ -152,8 +152,8 @@ img.ingredientImg {
 }
 
 .comment-form {
-  margin-right: 20%;
-  margin-left: 20%;
+  margin-right: 5px;
+  margin-left: 5px;
   margin-bottom: 25px;
   border-style: solid;
   border-width: .5px;
@@ -162,16 +162,16 @@ img.ingredientImg {
 
 .comments {
   background: #e6e6e6;
-  margin-right: 20%;
-  margin-left: 20%;
+  margin-right: 5px;
+  margin-left: 5px;
   margin-bottom: 2px;
   text-align: left;
   text-indent: 20px;
 }
 
 .userName{
-  margin-right: 20%;
-  margin-left: 20%;
+  margin-right: 5px;
+  margin-left: 5px;
   margin-bottom: 3px;
   text-align: left;
   font-weight: bold;
@@ -216,6 +216,10 @@ img.ingredientImg {
     position: absolute;
     top: 50px;
     right: 20px;
+  }
+
+  h1, h2 {
+    font-size: 2em;
   }
 }
 
