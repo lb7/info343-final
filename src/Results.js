@@ -1,6 +1,7 @@
 import React from 'react';
 import DataController from './DataController';
 import CardTemplate from './Card';
+import {Spinner} from 'react-mdl';
 
 class Results extends React.Component {
     constructor(props) {
@@ -43,7 +44,7 @@ class Results extends React.Component {
     render() {
         return (
             <div className="cards-container">
-                {this.state.cards}
+                {this.state.cards.length > 0 ? this.state.cards : <p>There were no results matching your query.</p>}
             </div>
         )
     }
