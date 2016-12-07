@@ -68,9 +68,10 @@ class Recipe extends React.Component {
         });
     }
 
+    // format time that is more than 60 minutes
     prepTimeFormat(time) {
         if (time <= 60) {
-            return time;
+            return time + ' minutes';
         } else if (time < 120) {
             return Math.round(time / 60) + ' hour & ' + (time % 60) + ' minutes';
         } else {
@@ -121,8 +122,19 @@ class IngredientList extends React.Component {
 
 // A single ingredient
 class IngredientItem extends React.Component {
+    
+    // limit the number of decimal places to two
+    fixDecimal(amount) {
+        var number = amount + '';
+        if(number.length > 4) {
+            return amount.toFixed(2);
+        } else {
+            return amount;
+        }
+    }
+
     render() {
-        var string = this.props.item.amount + ' ' + this.props.item.unitLong + ' ' + this.props.item.name;
+        var string = this.fixDecimal(this.props.item.amount) + ' ' + this.props.item.unitLong + ' ' + this.props.item.name;
 
         return (
             <List className="ingredientItem">
