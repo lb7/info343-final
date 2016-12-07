@@ -9,6 +9,7 @@ class LoginDialog extends React.Component {
         super(props);
         this.state = {
             openDialog: false,
+            user: DataController.getUser(),
             email: '',
             password: '',
             name: ''
@@ -16,7 +17,9 @@ class LoginDialog extends React.Component {
         this.handleOpenDialog = this.handleOpenDialog.bind(this);
         this.handleCloseDialog = this.handleCloseDialog.bind(this);
         this.signIn = this.signIn.bind(this);
-        this.signInCallback = this.signInCallback.bind(this);
+        this.authListener = this.authListener.bind(this);
+
+        DataController.registerAuthListener(this.authListener);
     }
 
     handleOpenDialog() {
@@ -31,19 +34,25 @@ class LoginDialog extends React.Component {
         });
     }
 
-    signInCallback(user) {
-        DataController.setName(this.state.name);
-        console.log('callback')
+    signIn() {
+        DataController.signIn(this.state.email, this.state.password, () => {
+            DataController.setName(this.state.name)
+        });
+        this.handleCloseDialog();
     }
 
-    signIn() {
-        DataController.signIn(this.state.email, this.state.password, this.signInCallback);
+    authListener(user) {
+        this.setState({user: user});
     }
 
     render() {
+        //let user = DataController.getUser();
+
         return (
             <div>
-                <Button colored onClick={this.handleOpenDialog} raised ripple>Sign In</Button>
+                <Button colored onClick={this.state.user ? DataController.signOut : this.handleOpenDialog} raised ripple>
+                    {this.state.user ? 'Sign Out' : 'Sign In'}
+                </Button>
                 <Dialog open={this.state.openDialog}>
                     <DialogTitle>Sign In</DialogTitle>
                     <DialogContent>
@@ -72,8 +81,8 @@ class LoginDialog extends React.Component {
                         />
                     </DialogContent>
                     <DialogActions>
-                        <Button type='button' onClick={this.signIn}>Agree</Button>
-                        <Button type='button' onClick={this.handleCloseDialog}>Disagree</Button>
+                        <Button type='button' onClick={this.signIn}>Sign In</Button>
+                        <Button type='button' onClick={this.handleCloseDialog}>Cancel</Button>
                     </DialogActions>
                 </Dialog>
             </div>

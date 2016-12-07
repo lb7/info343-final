@@ -8,11 +8,14 @@ class CommentForm extends React.Component {
 
         this.state = {
             comment: '',
-            comments: []
+            comments: [],
+            user: DataController.getUser()
         };
 
         this.getComments = this.getComments.bind(this);
         this.commentsCallback = this.commentsCallback.bind(this);
+
+        DataController.registerAuthListener(user => this.setState({user: user}));
     }
 
     componentWillMount() {
@@ -41,14 +44,20 @@ class CommentForm extends React.Component {
     render() {
         return (
             <div>
-                <h2>Comments</h2>
-                <Textfield
-                    onChange={e => this.setState({comment:e.target.value})}
-                    value={this.state.comment}
-                    label="Leave a comment..."
-                    rows={3}
-                />
-                <Button onClick={() => DataController.submitComment(this.props.id, this.state.comment)}>Submit</Button>
+                {this.state.user ? (
+                    <div>
+                        <h2>Comments</h2>
+                        <Textfield
+                            onChange={e => this.setState({comment:e.target.value})}
+                            value={this.state.comment}
+                            label="Leave a comment..."
+                            rows={3}
+                        />
+                        <Button onClick={() => DataController.submitComment(this.props.id, this.state.comment)}>Submit</Button>
+                    </div>
+                ) : (
+                    <p>You need to sign in to leave a comment</p>
+                )}
                 {this.state.comments}
             </div>
         )

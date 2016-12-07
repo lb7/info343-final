@@ -47,6 +47,10 @@ class DataController {
         })
     }
 
+    static signOut() {
+        firebase.auth().signOut();
+    }
+
     static createUser(email, password, callback) {
         firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
             callback(user);
@@ -56,9 +60,9 @@ class DataController {
     }
 
     static setName(name) {
-        firebase.auth().currentUser.updateProfile({displayName: name, photoURL: null}).then(() => {
-            console.log(firebase.auth().currentUser)
-        });
+        if (!this.getUser().displayName) {
+            this.getUser().updateProfile({displayName: name, photoURL: null})
+        }
     }
 
     static getUser() {
@@ -77,6 +81,10 @@ class DataController {
 
     static getComments(id, callback) {
         firebase.database().ref('recipes/' + id).once('value').then(snapshot => callback(snapshot));
+    }
+
+    static registerAuthListener(callback) {
+        firebase.auth().onAuthStateChanged(callback);
     }
 }
 
