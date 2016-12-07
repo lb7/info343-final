@@ -16,6 +16,7 @@ class App extends React.Component {
         this.stateUpdate = this.stateUpdate.bind(this);
     }
 
+    // updates state based on user search
     stateUpdate(input) {
         this.setState({ query: input });
     }
@@ -28,14 +29,14 @@ class App extends React.Component {
                     <SearchBar query={this.state.query} callback={this.stateUpdate} />
                     <div className="buttons">
                         <Link to={{ pathname: '/search/results', query: this.state }} onClick={() => this.setState({query: ''})}>
-                            <Button className="searchButton" raised colored>Search</Button>
+                            <Button className="searchButton" role="button" aria-label="search button" raised colored>Search</Button>
                         </Link>
                         <Link to='/search'>
-                            <Button className="advancedButton" raised colored>Advanced Search</Button>
+                            <Button className="advancedButton" role="button" aria-label="advanced search button" raised colored>Advanced Search</Button>
                         </Link>
                     </div>
                 </div>
-                <div className="login-button">
+                <div className="login-button" role="button" aria-label="login button">
                     <LoginDialog openDialog={this.state.openDialog} />
                 </div>
                 {this.props.children}
@@ -47,18 +48,19 @@ class App extends React.Component {
     }
 }
 
+// Quicklinks to categories and Homepage link
 class NavigationLinks extends React.Component {
     render() {
         return (
             <div style={{ height: '300px', position: 'relative' }}>
                 <Layout fixedHeader style={{ background: 'url(http://www.altaromablog.it/wp-content/uploads/2014/11/roma-food-3.jpg) center / cover' }}>
-                    <Header className="headerTitle" transparent title="Cook This, Not That!" style={{ color: 'white' }}>
+                    <Header className="headerTitle" role="header" transparent title="Cook This, Not That!" style={{ color: 'white' }}>
                         <Navigation>
-                            <Link className="headerText" to='/'>Homepage</Link>
+                            <Link className="headerText" role="link" aria-label="link to homepage" to='/'>Homepage</Link>
                         </Navigation>
                     </Header>
                     <Drawer title="Quick Links">
-                        <Navigation>
+                        <Navigation role="navigation">
                             <Link to={{ pathname: '/search/results', query: { query: 'christmas' } }}>Winter Holiday Recipes</Link>
                             <Link to={{ pathname: '/search/results', query: { query: 'appetizer' } }}>Appetizers</Link>
                             <Link to={{ pathname: '/search/results', query: { query: 'breakfast' } }}>Breakfast</Link>
@@ -74,6 +76,7 @@ class NavigationLinks extends React.Component {
     }
 }
 
+// common searchbar in all pages
 class SearchBar extends React.Component {
 
     handleChange(e) {
@@ -82,7 +85,7 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-            <div className="searchBar">
+            <div className="searchBar" aria-label="search bar">
                 <Textfield
                     onChange={(e) => { this.handleChange(e) } }
                     value={this.props.query}
@@ -96,10 +99,11 @@ class SearchBar extends React.Component {
     }
 }
 
+// common footer in all pages
 class CommonFooter extends React.Component {
     render() {
         return (
-            <Footer size="mini">
+            <Footer size="mini" role="footer">
                 <FooterSection type="left" logo="How to Cook That">
 
                     <FooterLinkList>

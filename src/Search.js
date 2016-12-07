@@ -180,7 +180,7 @@ class Search extends React.Component {
                     </div>
                 </div>
                 <Link to={{ pathname: '/search/results', query: this.trimParams() }}>
-                    <Button raised colored>Search</Button>
+                    <Button role="button" aria-label="search button" raised colored>Search</Button>
                 </Link>
             </div>
         )

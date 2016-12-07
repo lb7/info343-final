@@ -83,7 +83,7 @@ class Recipe extends React.Component {
         return (
             <div className="banner">
                 <header role="banner">
-                    <h1 className="recipeTitle">{this.state.recipeTitle}</h1>
+                    <h1 className="recipeTitle" aria-label="recipe title">{this.state.recipeTitle}</h1>
                     <h2>Serves: {this.state.servings}</h2>
                     <h2>Preparation Time: {prepTime}</h2>
                     <p>Recipe from {this.state.creditText}</p>
@@ -111,7 +111,7 @@ class IngredientList extends React.Component {
         return (
             <div>
                 <h3>Ingredients:</h3>
-                <div className="ingredient-container">
+                <div className="ingredient-container" aria-label="ingredients list">
                     {ingredientsItem}
                 </div>
             </div>
@@ -139,7 +139,7 @@ class IngredientItem extends React.Component {
             <List className="ingredientItem">
                 <ListItem>
                     <ListItemAction>
-                        <img className="ingredientImg" src={this.props.item.image} alt={this.props.item.name} />
+                        <img className="ingredientImg" aria-label="ingredient image" src={this.props.item.image} alt={this.props.item.name} />
                     </ListItemAction>
                     <ListItemContent>{string}</ListItemContent>
                 </ListItem>
@@ -175,7 +175,7 @@ class InstructionsList extends React.Component {
         return (
             <div>
                 <h3>Instructions:</h3>
-                <div className="instruction-container">
+                <div className="instruction-container" arial-label="recipe instructions">
                     {instructionsItem}
                 </div>
             </div>
@@ -215,7 +215,7 @@ class SimilarRecipes extends React.Component {
         return (
             <div>
                 <h3>You might also like:</h3>
-                <div className="cards-container">
+                <div className="cards-container" aria-label="similar recipes">
                     {recipeCards}
                 </div>
             </div>
@@ -229,7 +229,7 @@ class RecipeCard extends React.Component {
     render() {
 
         return (
-            <div className='cardTemplate'>
+            <div className='cardTemplate' aria-label="recipes">
                 <CardTemplate image={'https://spoonacular.com/recipeImages/' + this.props.recipe.image} title={this.props.recipe.title} id={this.props.recipe.id} />
             </div>
         );
