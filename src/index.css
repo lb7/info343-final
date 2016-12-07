@@ -5,23 +5,22 @@ body {
 }
 
 
-/*align the recipe cards and banner on home page*/
+/*recipe cards and banner on home page*/
 .random-recipes, .banner {
   text-align: center;
   margin: 5em;
 }
 
-/*font-family for header 2 and header 3*/
-h2, h3{
+h2, h3 {
   font-family: 'Quicksand', sans-serif;
 }
 
-/*Homepage link on homepage*/
+/* Homepage link */
 a{
   text-decoration: none;
 }
 
-/*the Homepage link on homepage*/
+/*Homepage link when hovered*/
 .headerText:hover{
   color: #D3D3D3;
 }
@@ -38,66 +37,63 @@ a{
   background-color: #eff5f5;
 }
 
-
-.mdl-data-table{
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 50%;
-}
-
-.banner {
- text-align: center; 
-}
-
-.recipeImage {
-  padding: 2em;
-}
-
+/* each step in the instructions*/
 .mdl-list.instructionItem {
   text-align: left;
-  border-style: solid;
-  border-radius: 10px;
   font-family: 'Quicksand', sans-serif;
 }
 
+.instruction-container {
+  border-style: solid;
+  border-radius: 10px;
+}
+
+/* title of recipe in recipe page*/
 .recipeTitle{
   font-family: 'Snippet', sans-serif;
 }
 
+/* container for recipe cards */
 .cards-container{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 10px;
 }
+
+/* a single recipe card */
 .cardTemplate{
   flex-basis: 100%;
   margin: 10px;
 }
 
-.ingredientImg{
-   max-width:100px; 
-   height:auto;
-}
 
+/* main image on recipe page */
 .recipeImage {
   max-width:50%;
   height: auto;
   padding: 2em;
 }
 
+/* textfield in advanced search page*/
 .searchInput {
     display: block;
 }
+
+/* "search" button */
 .searchButton{
     margin: 5px;
 }
+
+/* "Advanced Search" button */
 .advancedButton{
     margin: 5px;
 
 }
+
+/* container for search bar, search button, and advanced search button */
 .searchContainer{
-    display: flex, block;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
@@ -105,6 +101,7 @@ a{
     margin-right: 10px;
 }
 
+/* sign-in/sign-out button */
 .login-button {
   position: absolute;
   top: 10px;
@@ -112,10 +109,12 @@ a{
   z-index: 10;
   }
 
+/* container for body of advanced search page */
 .adv-search {
   text-align: center;
 }
 
+/* container for input fields in advanced search page */
 .advanced-search {
   border-style: solid;
   border-radius: 10px;
@@ -123,6 +122,7 @@ a{
   margin: 10px;
 }
 
+/* textfields of advanced search form */
 .adv-search-fields{
   display: flex;
   flex-wrap: wrap;
@@ -130,14 +130,19 @@ a{
   margin: 10px;
 }
 
+
 .mdl-textfield {
   margin: 10px;
 }
 
+/* image of each ingredient */
 img.ingredientImg {
   margin-right: 20px;
+  max-width:100px; 
+  height:auto;
 }
 
+/* container for ingredients in recipe page */
 .ingredient-container {
   display: flex;
   flex-wrap: wrap;
@@ -146,11 +151,13 @@ img.ingredientImg {
   
 }
 
+/* a single ingredient item */
 .mdl-list.ingredientItem {
   font-family: 'Quicksand', sans-serif;
   flex-basis: 100%
 }
 
+/* container for comment section, includes submit button */
 .comment-form {
   margin-right: 5px;
   margin-left: 5px;
@@ -160,6 +167,7 @@ img.ingredientImg {
   border-color: lightgrey;
   }
 
+/* all comments on recipe page */
 .comments {
   background: #e6e6e6;
   margin-right: 5px;
@@ -169,6 +177,7 @@ img.ingredientImg {
   text-indent: 20px;
 }
 
+/* username on comment box */
 .userName{
   margin-right: 5px;
   margin-left: 5px;
@@ -177,6 +186,7 @@ img.ingredientImg {
   font-weight: bold;
 }
 
+/* text field for leaving a comment */
 .comment-field {
  width: 75%;
  margin-left: 12.5%;
@@ -184,6 +194,7 @@ img.ingredientImg {
  margin-bottom: 0px;
 }
 
+/* submit button for comment */ 
 .comment-submit-button {
   border-radius: 4px;
   background: #99ccff;
@@ -205,7 +216,7 @@ img.ingredientImg {
   }
 }
 
-@media (max-width: 465px) {
+@media (max-width: 490px) {
  .headerText{
     position: absolute;
     right: 0;
@@ -223,7 +234,7 @@ img.ingredientImg {
   }
 }
 
-@media (max-width: 374px) {
+@media (max-width: 390px) {
  .headerText{
     position: absolute;
     top: 30px;
@@ -260,10 +271,12 @@ img.ingredientImg {
     font-size: 16px;
 }
 
+
 #nutrient-expand:hover {
     cursor: pointer;
 }
 
+/* loading spinner */
 .spinner {
     margin: 2rem auto;
     display: block;

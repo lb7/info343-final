@@ -195,7 +195,6 @@ class InstructionsItem extends React.Component {
 
         return (
             <div>
-                <h4>{this.props.section.name}</h4>
                 <List className="instructionItem">
                     {eachStep}
                 </List>
