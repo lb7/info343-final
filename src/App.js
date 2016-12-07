@@ -25,6 +25,9 @@ class App extends React.Component {
         return (
             <div>
                 <NavigationLinks />
+                <div className="login-button">
+                <LoginDialog openDialog={this.state.openDialog} />
+                </div>
                 <div className="searchContainer">
                     <SearchBar query={this.state.query} callback={this.stateUpdate} />
                     <div className="buttons">
@@ -36,8 +39,7 @@ class App extends React.Component {
                         </Link>
                     </div>
                 </div>
-
-                <LoginDialog openDialog={this.state.openDialog} />
+                
                 {this.props.children}
                 <div className="footer">
                     <CommonFooter />
