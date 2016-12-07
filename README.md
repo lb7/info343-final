@@ -14,3 +14,8 @@ from other users about each recipe.
 #Special instructions
 
 None
+
+#Notes
+
+Some recipe data pulled from the API is structered in a way that presents unwanted 
+information in the instructions section.
