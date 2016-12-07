@@ -151,6 +151,45 @@ img.ingredientImg {
   flex-basis: 100%
 }
 
+.comment-form {
+  margin-right: 20%;
+  margin-left: 20%;
+  margin-bottom: 25px;
+  border-style: solid;
+  border-width: .5px;
+  border-color: lightgrey;
+  }
+
+.comments {
+  background: #e6e6e6;
+  margin-right: 20%;
+  margin-left: 20%;
+  margin-bottom: 2px;
+  text-align: left;
+  text-indent: 20px;
+}
+
+.userName{
+  margin-right: 20%;
+  margin-left: 20%;
+  margin-bottom: 3px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.comment-field {
+ width: 75%;
+ margin-left: 12.5%;
+ margin-right: 12.5%;
+ margin-bottom: 0px;
+}
+
+.comment-submit-button {
+  border-radius: 4px;
+  background: #99ccff;
+  margin-bottom: 10px;
+}
+
 @media (min-width: 768px) {
   .cardTemplate {
     flex-basis: 25%;

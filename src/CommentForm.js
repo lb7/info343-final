@@ -45,15 +45,15 @@ class CommentForm extends React.Component {
         return (
             <div>
                 {this.state.user ? (
-                    <div>
+                    <div className="comment-form">
                         <h2>Comments</h2>
-                        <Textfield
+                        <Textfield className="comment-field"
                             onChange={e => this.setState({comment:e.target.value})}
                             value={this.state.comment}
                             label="Leave a comment..."
                             rows={3}
                         />
-                        <Button onClick={() => DataController.submitComment(this.props.id, this.state.comment)}>Submit</Button>
+                        <Button className="comment-submit-button" onClick={() => DataController.submitComment(this.props.id, this.state.comment)}>Submit</Button>
                     </div>
                 ) : (
                     <p>You need to sign in to leave a comment</p>
@@ -68,7 +68,8 @@ class Comment extends React.Component {
     render() {
         return (
             <div>
-                <p>{this.props.name}: {this.props.text}</p>
+                <p className="userName">{this.props.name}</p>
+                <p className="comments">{this.props.text}</p>
             </div>
         );
     }
