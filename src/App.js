@@ -16,6 +16,7 @@ class App extends React.Component {
         this.stateUpdate = this.stateUpdate.bind(this);
     }
 
+    // updates state based on user search
     stateUpdate(input) {
         this.setState({ query: input });
     }
@@ -47,6 +48,7 @@ class App extends React.Component {
     }
 }
 
+// Quicklinks to categories and Homepage link
 class NavigationLinks extends React.Component {
     render() {
         return (
@@ -74,6 +76,7 @@ class NavigationLinks extends React.Component {
     }
 }
 
+// common searchbar in all pages
 class SearchBar extends React.Component {
 
     handleChange(e) {
@@ -96,6 +99,7 @@ class SearchBar extends React.Component {
     }
 }
 
+// common footer in all pages
 class CommonFooter extends React.Component {
     render() {
         return (
