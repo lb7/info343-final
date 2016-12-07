@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Link, Router } from 'react-router';
+import { Link } from 'react-router';
 import { Button, Textfield, Navigation, Drawer, Content, Layout, Header } from 'react-mdl';
 import { FooterLinkList, FooterSection, Footer } from 'react-mdl';
 import LoginDialog from './LoginDialog';
