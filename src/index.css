@@ -30,7 +30,7 @@ a{
 .headerText{
   font-weight: bold;
   position: relative;
-  right: 60px;
+  right: 80px;
   font-size: large;
 }
 
@@ -215,7 +215,7 @@ img.ingredientImg {
   .login-button {
     position: absolute;
     top: 50px;
-    right: 20px;
+    right: 10px;
   }
 
   h1, h2 {
@@ -227,14 +227,14 @@ img.ingredientImg {
  .headerText{
     position: absolute;
     top: 30px;
-    right: 10px;
+    right:12px;
     
   }
 
   .login-button {
     position: absolute;
     top: 75px;
-    right: 30px;
+    right: 20px;
   }
 }
 
