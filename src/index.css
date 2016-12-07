@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
 }
 
+
 /*align the recipe cards and banner on home page*/
 .random-recipes, .banner {
   text-align: center;
@@ -41,10 +42,15 @@ a{
  text-align: center; 
 }
 
-.mdl-list {
+.recipeImage {
+  padding: 2em;
+}
+
+.mdl-list.instructionItem {
   text-align: left;
   border-style: solid;
   border-radius: 10px;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .recipeTitle{
@@ -62,7 +68,7 @@ a{
   margin: 10px;
 }
 
-.ingredientImage{
+.ingredientImg{
    max-width:100px; 
    height:auto;
 }
@@ -99,6 +105,24 @@ a{
   z-index: 10;
   }
 
+img.ingredientImg {
+  margin-right: 20px;
+}
+
+.ingredient-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 10px;
+  
+}
+
+
+.mdl-list.ingredientItem {
+  font-family: 'Quicksand', sans-serif;
+  flex-basis: 100%
+}
+
 @media (min-width: 768px) {
   .cardTemplate {
     flex-basis: 25%;
@@ -107,6 +131,10 @@ a{
   .searchContainer {
     display: flex;
     flex-wrap: nowrap;
+  }
+
+  .mdl-list.ingredientItem {
+    flex-basis: 50%;
   }
 }
 

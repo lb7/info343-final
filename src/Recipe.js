@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem, DataTable, TableHeader } from 'react-mdl';
+import { List, ListItem, ListItemAction, ListItemContent } from 'react-mdl';
 import DataController from './DataController';
 import CardTemplate from './Card';
 import CommentForm from './CommentForm';
@@ -68,13 +68,24 @@ class Recipe extends React.Component {
         });
     }
 
+    prepTimeFormat(time) {
+        if (time <= 60) {
+            return time;
+        } else if (time < 120) {
+            return Math.round(time / 60) + ' hour & ' + (time % 60) + ' minutes';
+        } else {
+            return Math.round(time / 60) + ' hours & ' + (time % 60) + ' minutes';
+        }
+    }
+
     render() {
+        var prepTime = this.prepTimeFormat(this.state.prepTime);
         return (
             <div className="banner">
                 <header role="banner">
                     <h1 className="recipeTitle">{this.state.recipeTitle}</h1>
                     <h2>Serves: {this.state.servings}</h2>
-                    <h2>Preparation Time: {this.state.prepTime} minutes</h2>
+                    <h2>Preparation Time: {prepTime}</h2>
                     <p>Recipe from {this.state.creditText}</p>
                     <a href={this.state.originalSource}>Link to source</a>
                 </header>
@@ -89,33 +100,39 @@ class Recipe extends React.Component {
     }
 }
 
-// Table of ingredients
+// List of ingredients
 // Parameter: Array of ingredients from current recipe
 class IngredientList extends React.Component {
     render() {
-        var rowArray = [];
-        this.props.ingredients.map(function (obj, index) {
-            var quantityString = obj.amount + ' ' + obj.unitLong;
-            var ingredientObj = {
-                image: <img role="presentation" className="ingredientImage" src={obj.image} alt={obj.name} />,
-                ingredient: obj.name,
-                quantity: quantityString
-            };
-            return rowArray.push(ingredientObj)
+        var ingredientsItem = this.props.ingredients.map(function (obj, index) {
+            return <IngredientItem item={obj} key={index} />
         });
 
         return (
             <div>
                 <h3>Ingredients:</h3>
-                <DataTable
-                    shadow={5}
-                    rows={rowArray}
-                    >
-                    <TableHeader name="image"></TableHeader>
-                    <TableHeader name="ingredient">Ingredient(s)</TableHeader>
-                    <TableHeader numeric name="quantity">Amount</TableHeader>
-                </DataTable>
+                <div className="ingredient-container">
+                    {ingredientsItem}
+                </div>
             </div>
+        );
+    }
+}
+
+// A single ingredient
+class IngredientItem extends React.Component {
+    render() {
+        var string = this.props.item.amount + ' ' + this.props.item.unitLong + ' ' + this.props.item.name;
+
+        return (
+            <List className="ingredientItem">
+                <ListItem>
+                    <ListItemAction>
+                        <img className="ingredientImg" src={this.props.item.image} alt={this.props.item.name} />
+                    </ListItemAction>
+                    <ListItemContent>{string}</ListItemContent>
+                </ListItem>
+            </List>
         );
     }
 }
@@ -143,12 +160,13 @@ class InstructionsList extends React.Component {
         var instructionsItem = this.state.instructionsArray.map(function (obj, index) {
             return <InstructionsItem section={obj} key={index} />
         });
-        console.log(instructionsItem)
 
         return (
-            <div className="container-instructions">
+            <div>
                 <h3>Instructions:</h3>
-                {instructionsItem}
+                <div className="instruction-container">
+                    {instructionsItem}
+                </div>
             </div>
         );
     }
@@ -157,14 +175,17 @@ class InstructionsList extends React.Component {
 // A single step in the instructions list
 class InstructionsItem extends React.Component {
     render() {
-        var eachStep = this.props.section.steps.map(function (obj, index) {
+        var filterSteps = this.props.section.steps.filter(function (obj) {
+            return obj.step.length > 3;
+        });
+        var eachStep = filterSteps.map(function (obj, index) {
             return <ListItem key={index}>{index + 1 + ". " + obj.step}</ListItem>
         });
 
         return (
             <div>
                 <h4>{this.props.section.name}</h4>
-                <List>
+                <List className="instructionItem">
                     {eachStep}
                 </List>
             </div>
