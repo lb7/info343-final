@@ -4,23 +4,29 @@ body {
   font-family: sans-serif;
 }
 
+
+/*align the recipe cards and banner on home page*/
 .random-recipes, .banner {
   text-align: center;
   margin: 5em;
 }
 
+/*font-family for header 2 and header 3*/
 h2, h3{
   font-family: 'Quicksand', sans-serif;
 }
 
+/*Homepage link on homepage*/
 a{
   text-decoration: none;
 }
 
+/*the Homepage link on homepage*/
 .headerText:hover{
   color: #D3D3D3;
 }
 
+/*font-style for text in the header*/
 .headerText{
   font-weight: bold;
   position: relative;
@@ -77,6 +83,7 @@ a{
 .recipeImage {
   max-width:50%;
   height: auto;
+  padding: 2em;
 }
 
 .searchInput {
