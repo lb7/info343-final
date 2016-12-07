@@ -105,7 +105,7 @@ class IngredientList extends React.Component {
         });
 
         return (
-            <div className="ingreTable">
+            <div>
                 <h3>Ingredients:</h3>
                 <DataTable
                     shadow={5}
