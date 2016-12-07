@@ -97,7 +97,7 @@ a{
 
 }
 .searchContainer{
-    display: flex, block;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
@@ -205,7 +205,7 @@ img.ingredientImg {
   }
 }
 
-@media (max-width: 465px) {
+@media (max-width: 490px) {
  .headerText{
     position: absolute;
     right: 0;
@@ -223,7 +223,7 @@ img.ingredientImg {
   }
 }
 
-@media (max-width: 374px) {
+@media (max-width: 390px) {
  .headerText{
     position: absolute;
     top: 30px;

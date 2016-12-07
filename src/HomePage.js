@@ -15,7 +15,7 @@ class HomePage extends React.Component {
     }
 }
 
-
+// Creates 12 random recipe cards with links to recipe pages
 class RandomRecipeList extends React.Component {
     constructor(props) {
         super(props);
@@ -62,11 +62,10 @@ class RandomRecipeList extends React.Component {
     }
 }
 
-
+// Creates recipe card template
 class RecipeCard extends React.Component {
 
     handleClick() {
-        console.log("You clicked on", this.props.recipe.id);
         hashHistory.push('/recipe/' + this.props.recipe.id);
     }
     render() {
