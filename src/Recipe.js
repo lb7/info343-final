@@ -68,13 +68,24 @@ class Recipe extends React.Component {
         });
     }
 
+    prepTimeFormat(time) {
+        if (time <= 60) {
+            return time;
+        } else if (time < 120) {
+            return (time / 60) + ' hour & ' + (time % 60) + ' minutes';
+        } else {
+            return (time / 60) + ' hours & ' + (time % 60) + ' minutes';
+        }
+    }
+
     render() {
+        var prepTime = this.prepTimeFormat(this.state.prepTime);
         return (
             <div className="banner">
                 <header role="banner">
                     <h1 className="recipeTitle">{this.state.recipeTitle}</h1>
                     <h2>Serves: {this.state.servings}</h2>
-                    <h2>Preparation Time: {this.state.prepTime} minutes</h2>
+                    <h2>Preparation Time: {prepTime}</h2>
                     <p>Recipe from {this.state.creditText}</p>
                     <a href={this.state.originalSource}>Link to source</a>
                 </header>
@@ -157,7 +168,10 @@ class InstructionsList extends React.Component {
 // A single step in the instructions list
 class InstructionsItem extends React.Component {
     render() {
-        var eachStep = this.props.section.steps.map(function (obj, index) {
+        var filterSteps = this.props.section.steps.filter(function (obj) {
+            return obj.step.length > 3;
+        });
+        var eachStep = filterSteps.map(function (obj, index) {
             return <ListItem key={index}>{index + 1 + ". " + obj.step}</ListItem>
         });
 
