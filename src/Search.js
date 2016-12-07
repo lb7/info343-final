@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Button, Textfield } from 'react-mdl';
+import { Button, Textfield, Icon } from 'react-mdl';
 
 class Search extends React.Component {
     constructor(props) {
@@ -20,10 +20,20 @@ class Search extends React.Component {
             minFat: '',
             maxFat: '',
             minProtein: '',
-            maxProtein: ''
-        }
+            maxProtein: '',
+            expand: false
+        };
 
         this.trimParams = this.trimParams.bind(this);
+        this.toggleExpand = this.toggleExpand.bind(this);
+    }
+
+    toggleExpand() {
+        if (this.state.expand) {
+            this.setState({expand: false});
+        } else {
+            this.setState({expand: true});
+        }
     }
 
     trimParams() {
@@ -88,7 +98,13 @@ class Search extends React.Component {
                             />
                     </div>
 
-                    <div className="adv-search-fields">
+                    <div onClick={this.toggleExpand} id="nutrient-expand">
+                        <span>Nutrient Search</span>
+                        <Icon name="arrow_drop_down" className={this.state.expand ? 'rotatable' +
+                        ' rotated' : 'rotatable'} style={{fontSize: '16px'}}/>
+                    </div>
+
+                    <div className={this.state.expand ? 'adv-search-fields expandable expand' : 'adv-search-fields expandable'} id="nutrient-fields">
                         <Textfield
                             onChange={e => this.setState({ minCalories: e.target.value })}
                             value={this.state.minCalories}

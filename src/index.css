@@ -195,6 +195,31 @@ img.ingredientImg {
   }
 }
 
+.expandable {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .75s;
+}
+
+.expand {
+    max-height: 500px;
+}
+
+.rotatable {
+    transition-duration: .75s;
+}
+
+.rotated {
+    transform: rotate(-180deg);
+}
+
+#nutrient-expand {
+    font-size: 16px;
+}
+
+#nutrient-expand:hover {
+    cursor: pointer;
+}
 
 
 
