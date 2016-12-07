@@ -18,12 +18,8 @@ class CommentForm extends React.Component {
         DataController.registerAuthListener(user => this.setState({user: user}));
     }
 
-    componentWillMount() {
-        this.getComments();
-    }
-
-    componentWillReceiveProps() {
-        this.getComments();
+    componentDidMount() {
+        DataController.getComments(this.props.id, this.commentsCallback);
     }
 
     getComments() {
