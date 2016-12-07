@@ -61,7 +61,6 @@ class Recipe extends React.Component {
     //fetch similar recipes based on current recipe id
     fetchSimilarData(id) {
         DataController.makeRequest('/recipes/' + id + '/similar', {}, data => {
-            console.log(data);
             this.setState({
                 similarRecipes: data
             });
