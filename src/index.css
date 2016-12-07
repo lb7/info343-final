@@ -74,7 +74,6 @@ a{
   margin-left: auto;
   margin-right: auto;
   max-width: 50%;
-  
 }
 
 .recipeImage {
@@ -132,9 +131,10 @@ a{
 }
 
 .login-button {
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 5px;
+  z-index: 10;
   }
 
 @media (min-width: 768px) {
