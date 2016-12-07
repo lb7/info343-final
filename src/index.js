@@ -12,7 +12,6 @@ import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
 
 import './index.css';
-import './css/search.css';
 
 const config = {
     apiKey: "AIzaSyCIti-HKJ951qi2jSZ9mepk9pz1Hf88KNo",
