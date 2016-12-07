@@ -264,5 +264,9 @@ img.ingredientImg {
     cursor: pointer;
 }
 
+.spinner {
+    margin: 2rem auto;
+    display: block;
+}
 
 

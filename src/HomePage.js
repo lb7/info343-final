@@ -2,6 +2,7 @@ import React from 'react';
 import { hashHistory } from 'react-router'
 import DataController from './DataController';
 import CardTemplate from './Card'
+import {Spinner} from 'react-mdl';
 
 class HomePage extends React.Component {
 
@@ -44,11 +45,18 @@ class RandomRecipeList extends React.Component {
         });
 
         return (
-            <div className="random-recipes">
-                <h2>Explore New Recipes!</h2>
-                <div className="cards-container">
-                    {recipeCards}
-                </div>
+            <div>
+            { this.state.results.length > 0 ? (
+                    <div className="random-recipes">
+                        <h2>Explore New Recipes!</h2>
+                        <div className="cards-container">
+                            {recipeCards}
+                        </div>
+                    </div>
+                ) : (
+                    <Spinner className="spinner"/>
+                )
+            }
             </div>
         )
     }
