@@ -175,7 +175,7 @@ class InstructionsList extends React.Component {
         return (
             <div>
                 <h3>Instructions:</h3>
-                <div className="instruction-container" arial-label="recipe instructions">
+                <div className="instruction-container" aria-label="recipe instructions">
                     {instructionsItem}
                 </div>
             </div>

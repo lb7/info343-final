@@ -14,6 +14,9 @@ class Results extends React.Component {
         this.searchCallback = this.searchCallback.bind(this);
     }
 
+    /**
+     * Called when the search is completed. Populates all the cards.
+     */
     searchCallback(response) {
         let recipes = response.results;
         let cards = [];
@@ -29,6 +32,9 @@ class Results extends React.Component {
 
     }
 
+    /**
+     * Makes the search request
+     */
     search() {
         DataController.makeRequest('/recipes/searchComplex',
             this.props.location.search,

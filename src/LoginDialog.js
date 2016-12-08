@@ -34,6 +34,9 @@ class LoginDialog extends React.Component {
         });
     }
 
+    /**
+     * After the user is signed in, set the display name they provided
+     */
     signIn() {
         DataController.signIn(this.state.email, this.state.password, () => {
             DataController.setName(this.state.name)
@@ -41,13 +44,14 @@ class LoginDialog extends React.Component {
         this.handleCloseDialog();
     }
 
+    /**
+     * Called whenever the current user changes.
+     */
     authListener(user) {
         this.setState({user: user});
     }
 
     render() {
-        //let user = DataController.getUser();
-
         return (
             <div>
                 <Button colored onClick={this.state.user ? DataController.signOut : this.handleOpenDialog} raised ripple>

@@ -12,7 +12,6 @@ class CommentForm extends React.Component {
             user: DataController.getUser()
         };
 
-        this.getComments = this.getComments.bind(this);
         this.commentsCallback = this.commentsCallback.bind(this);
 
         DataController.registerAuthListener(user => this.setState({user: user}));
@@ -22,10 +21,9 @@ class CommentForm extends React.Component {
         DataController.getComments(this.props.id, this.commentsCallback);
     }
 
-    getComments() {
-        DataController.getComments(this.props.id, this.commentsCallback);
-    }
-
+    /**
+     * Called when comments are added to update the list
+     */
     commentsCallback(snapshot) {
         let comments = [];
 
